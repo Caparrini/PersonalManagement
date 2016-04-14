@@ -1,0 +1,3 @@
+2 Tipos Usuarios
+1 clase usuario con todos los datos que pueda tener un usuario
+ y luego dos derivados de este mas especializados, uno admin y otro normal
