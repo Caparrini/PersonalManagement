@@ -22,7 +22,7 @@ public class LoginView extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel bannerLabel;
-	private JLabel imagenPanel;
+	private JLabel imagePanel;
 	private JPanel loginPanel;
 	
 	private JTextField user;
@@ -43,18 +43,34 @@ public class LoginView extends JFrame{
 
 		this.getContentPane().setLayout(new BorderLayout());
 		
+			initBannerPanel();
+		
+			initImagePanel();
+		
+			initLoginPanel();
+		
+	}
+	
+	private void initBannerPanel(){
+		
 			this.bannerLabel = new JLabel("Aqui iria el banner de la UCM");
 			bannerLabel.setSize(640, 150);
 			bannerLabel.setBackground(Color.RED);
 			bannerLabel.setOpaque(true);
 			
 		this.getContentPane().add(bannerLabel,BorderLayout.NORTH);
+	}
+	
+	private void initImagePanel(){
 		
-			this.imagenPanel = new JLabel("Aqui iria la imagen del portal de acceso");
-			imagenPanel.setBackground(Color.BLUE);
-			imagenPanel.setOpaque(true);
+			this.imagePanel = new JLabel("Aqui iria la imagen del portal de acceso");
+			imagePanel.setBackground(Color.BLUE);
+			imagePanel.setOpaque(true);
 		
-		this.getContentPane().add(imagenPanel,BorderLayout.WEST);
+		this.getContentPane().add(imagePanel,BorderLayout.WEST);
+	}
+	
+	private void initLoginPanel(){
 		
 			this.loginPanel = new JPanel();
 			loginPanel.setLayout(new GridLayout(5, 3, 10, 10));
@@ -66,7 +82,7 @@ public class LoginView extends JFrame{
 					
 				loginPanel.add(user);
 				
-				loginPanel.add(new JLabel("Contraseña:"));
+				loginPanel.add(new JLabel("Contraseï¿½a:"));
 				
 					pass = new JTextField();
 					pass.setPreferredSize(new Dimension(70,25));
