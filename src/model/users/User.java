@@ -65,15 +65,34 @@ public class User {
 	 * Validate mail
 	 */
 	public boolean validateMail(String mail){
-		//TODO
-		return false;
+		boolean resultado = false;
+
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\."
+		+ "[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)"
+		+ "+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(mail);
+        resultado = m.matches();
+
+        return resultado;
 	}
 	/**
 	 * Validate DNI
 	 */
 	public boolean validateDNI(String DNI){
-		//TODO
-		return false;
+		boolean resultado = false;
+		String dniComprobado;
+		String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+		if(DNI.length()==9 || DNI.length()==8){
+			if(DNI.length()==8) DNI="0"+DNI;
+			int numDni= Integer.parseInt(DNI.replaceAll("[^\\.01234567890]",""));
+			dniComprobado =  String.valueOf(numDni) + letras.charAt(numDni % 23);
+			if(dniComprobado.length()==8) dniComprobado="0"+dniComprobado;
+			if (dniComprobado.equals(DNI)){
+				resultado = true;
+			}
+		}
+		return resultado;
 	}
 	/**
 	 * Validate name
