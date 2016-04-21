@@ -1,5 +1,6 @@
 package dba;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -62,8 +63,25 @@ public class UserMapper extends AbstractMapper<User>{
 
 	@Override
 	protected User buildObjectFromResultSet(ResultSet rs) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		String [] k = getColumnNames();
+
+		String name = rs.getString(k[0]);
+		String prename = rs.getString(k[1]);
+		String password = rs.getString(k[2]);
+
+		String DNI = rs.getString(k[3]);
+		String mail = rs.getString(k[4]);
+
+		Boolean down = rs.getBoolean(k[5]);
+		Boolean holidays = rs.getBoolean(k[6]);
+		Date birthDate = rs.getDate(k[7]);
+		Date creatDate = rs.getDate(k[8]);
+		Boolean isAdmin = rs.getBoolean(k[9]);
+
+
+		return new User(DNI,password,mail,name,
+				prename,down,holidays,birthDate,
+				creatDate,isAdmin);
 	}
 
 
