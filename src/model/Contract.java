@@ -103,7 +103,7 @@ public class Contract {
 	 * Getter of type
 	 */
 	public String getType(){
-	 	 return type;
+		return type;
 	}
 	/**
 	 * Setter of type
