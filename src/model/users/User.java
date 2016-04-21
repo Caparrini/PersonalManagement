@@ -1,5 +1,7 @@
 package model.users;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 
 public class User {
@@ -227,6 +229,5 @@ public class User {
 	 */
 	public void setIsAdmin(Boolean isAdmin){
 		this.isAdmin = isAdmin;
-	} 
-
+	}
 }
