@@ -62,6 +62,34 @@ public class User {
 	}
 	
 	/**
+	 * Validate mail
+	 */
+	public boolean validateMail(String mail){
+		//TODO
+		return false;
+	}
+	/**
+	 * Validate DNI
+	 */
+	public boolean validateDNI(String DNI){
+		//TODO
+		return false;
+	}
+	/**
+	 * Validate name
+	 */
+	public boolean validateName(String name){
+		//TODO
+		return false;
+	}
+	public boolean validatePrename(String prename){
+		//TODO
+		return false;
+	}
+	/**
+	 * Validate prename
+	 */
+	/**
 	 * Getter of DNI
 	 */
 	public String getDNI(){
