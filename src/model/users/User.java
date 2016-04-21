@@ -44,6 +44,23 @@ public class User {
 	 * 
 	 */
 	private Boolean IsAdmin;
+	
+	public User(String dNI, String password, String mail, String name,
+			String prename, Boolean down, Boolean holidays, Date birthDate,
+			Date creatDate, Boolean isAdmin) {
+		super();
+		DNI = dNI;
+		Password = password;
+		Mail = mail;
+		Name = name;
+		Prename = prename;
+		Down = down;
+		Holidays = holidays;
+		BirthDate = birthDate;
+		CreatDate = creatDate;
+		IsAdmin = isAdmin;
+	}
+	
 	/**
 	 * Getter of DNI
 	 */

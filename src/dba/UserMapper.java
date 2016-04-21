@@ -15,26 +15,46 @@ public class UserMapper extends AbstractMapper<User>{
 
 	@Override
 	protected String getTableName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Usuario";
 	}
 
 	@Override
 	protected String[] getColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {
+			"Nombre",
+			"Apellidos",
+			"Password",
+			"DNI",
+			"Mail",
+			"Baja",
+			"Vacaciones",
+			"FechNac",
+			"FechCreac",
+			"Admin"
+		};
 	}
 
 	@Override
 	protected String[] getKeyColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"DNI"};
 	}
 
 	@Override
 	public boolean insert(User obInsert) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.insert(
+			new Object[] {
+				obInsert.getName(),
+				obInsert.getPrename(),
+				obInsert.getPassword(),
+				obInsert.getDNI(),
+				obInsert.getMail(),
+				obInsert.getDown(),
+				obInsert.getHolidays(),
+				obInsert.getBirthDate(),
+				obInsert.getCreatDate(),
+				obInsert.getIsAdmin()
+			}
+		);
 	}
 
 	@Override
