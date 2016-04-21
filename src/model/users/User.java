@@ -11,175 +11,175 @@ public class User {
 	/**
 	 * 
 	 */
-	protected String Password;
+	protected String password;
 	/**
 	 * 
 	 */
-	protected String Mail;
+	protected String mail;
 	/**
 	 * 
 	 */
-	protected String Name;
+	protected String name;
 	/**
 	 * 
 	 */
-	private String Prename;
+	private String prename;
 	/**
 	 * 
 	 */
-	private Boolean Down;
+	private Boolean down;
 	/**
 	 * 
 	 */
-	private Boolean Holidays;
+	private Boolean holidays;
 	/**
 	 * 
 	 */
-	private Date BirthDate;
+	private Date birthDate;
 	/**
 	 * 
 	 */
-	private Date CreatDate;
+	private Date creatDate;
 	/**
 	 * 
 	 */
-	private Boolean IsAdmin;
+	private Boolean isAdmin;
 	
 	public User(String dNI, String password, String mail, String name,
 			String prename, Boolean down, Boolean holidays, Date birthDate,
 			Date creatDate, Boolean isAdmin) {
 		super();
 		DNI = dNI;
-		Password = password;
-		Mail = mail;
-		Name = name;
-		Prename = prename;
-		Down = down;
-		Holidays = holidays;
-		BirthDate = birthDate;
-		CreatDate = creatDate;
-		IsAdmin = isAdmin;
+		this.password = password;
+		this.mail = mail;
+		this.name = name;
+		this.prename = prename;
+		this.down = down;
+		this.holidays = holidays;
+		this.birthDate = birthDate;
+		this.creatDate = creatDate;
+		this.isAdmin = isAdmin;
 	}
 	
 	/**
 	 * Getter of DNI
 	 */
-	public String getDNI() {
-	 	 return DNI; 
+	public String getDNI(){
+		return DNI;
 	}
 	/**
 	 * Setter of DNI
 	 */
-	public void setDNI(String DNI) { 
-		 this.DNI = DNI; 
+	public void setDNI(String DNI){
+		this.DNI = DNI;
 	}
 	/**
 	 * Getter of Password
 	 */
-	public String getPassword() {
-	 	 return Password; 
+	public String getPassword(){
+		return password;
 	}
 	/**
 	 * Setter of Password
 	 */
-	public void setPassword(String Password) { 
-		 this.Password = Password; 
+	public void setPassword(String password){
+		this.password = password;
 	}
 	/**
 	 * Getter of Mail
 	 */
-	public String getMail() {
-	 	 return Mail; 
+	public String getMail(){
+		return mail;
 	}
 	/**
 	 * Setter of Mail
 	 */
-	public void setMail(String Mail) { 
-		 this.Mail = Mail; 
+	public void setMail(String mail){
+		this.mail = mail;
 	}
 	/**
 	 * Getter of Name
 	 */
-	public String getName() {
-	 	 return Name; 
+	public String getName(){
+		return name;
 	}
 	/**
 	 * Setter of Name
 	 */
-	public void setName(String Name) { 
-		 this.Name = Name; 
+	public void setName(String name) {
+		this.name = name;
 	}
 	/**
 	 * Getter of Prename
 	 */
-	public String getPrename() {
-	 	 return Prename; 
+	public String getPrename(){
+		return prename;
 	}
 	/**
 	 * Setter of Prename
 	 */
-	public void setPrename(String Prename) { 
-		 this.Prename = Prename; 
+	public void setPrename(String prename){
+		this.prename = prename;
 	}
 	/**
 	 * Getter of Down
 	 */
-	public Boolean getDown() {
-	 	 return Down; 
+	public Boolean getDown(){
+		return down;
 	}
 	/**
 	 * Setter of Down
 	 */
-	public void setDown(Boolean Down) { 
-		 this.Down = Down; 
+	public void setDown(Boolean down){
+		this.down = down;
 	}
 	/**
 	 * Getter of Holidays
 	 */
-	public Boolean getHolidays() {
-	 	 return Holidays; 
+	public Boolean getHolidays(){
+		return holidays;
 	}
 	/**
 	 * Setter of Holidays
 	 */
-	public void setHolidays(Boolean Holidays) { 
-		 this.Holidays = Holidays; 
+	public void setHolidays(Boolean holidays){
+		this.holidays = holidays;
 	}
 	/**
 	 * Getter of BirthDate
 	 */
-	public Date getBirthDate() {
-	 	 return BirthDate; 
+	public Date getBirthDate(){
+		return birthDate;
 	}
 	/**
 	 * Setter of BirthDate
 	 */
-	public void setBirthDate(Date BirthDate) { 
-		 this.BirthDate = BirthDate; 
+	public void setBirthDate(Date birthDate){
+		this.birthDate = birthDate;
 	}
 	/**
 	 * Getter of CreatDate
 	 */
-	public Date getCreatDate() {
-	 	 return CreatDate; 
+	public Date getCreatDate(){
+		return creatDate;
 	}
 	/**
 	 * Setter of CreatDate
 	 */
-	public void setCreatDate(Date CreatDate) { 
-		 this.CreatDate = CreatDate; 
+	public void setCreatDate(Date creatDate){
+		this.creatDate = creatDate;
 	}
 	/**
 	 * Getter of IsAdmin
 	 */
-	public Boolean getIsAdmin() {
-	 	 return IsAdmin; 
+	public Boolean getIsAdmin(){
+		return isAdmin;
 	}
 	/**
 	 * Setter of IsAdmin
 	 */
-	public void setIsAdmin(Boolean IsAdmin) { 
-		 this.IsAdmin = IsAdmin; 
+	public void setIsAdmin(Boolean isAdmin){
+		this.isAdmin = isAdmin;
 	} 
 
 }
