@@ -10,31 +10,34 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 
 	public FacultyMapper(DataSource ds) {
 		super(ds);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected String getTableName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Facultad";
 	}
 
 	@Override
 	protected String[] getColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[]{
+			"Nombre",
+			"Direccion"
+		};
 	}
 
 	@Override
 	protected String[] getKeyColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[]{
+			"Nombre"
+		};
 	}
 
 	@Override
 	public boolean insert(Faculty obInsert) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.insert(new Object[]{
+			obInsert.getName(),
+			obInsert.getAddress()
+		});
 	}
 
 	@Override

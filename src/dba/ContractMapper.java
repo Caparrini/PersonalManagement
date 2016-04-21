@@ -10,31 +10,50 @@ public class ContractMapper extends AbstractMapper<Contract>{
 
 	public ContractMapper(DataSource ds) {
 		super(ds);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected String getTableName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Contrato";
 	}
 
 	@Override
 	protected String[] getColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {
+				"ContratadoDNI",
+				"DepartamentoID",
+				"IdContrato",
+				"Convenio",
+				"Duracion",
+				"Tipo",
+				"CategoriaProfesional",
+				"Remuneracion",
+				"Vacaciones"
+		};
 	}
 
 	@Override
 	protected String[] getKeyColumnNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {
+				"IdContrato"
+		};
 	}
 
 	@Override
 	public boolean insert(Contract obInsert) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.insert(
+				new Object[] {
+					obInsert.getWorker().getDNI(),
+					obInsert.getDepartment().getIdDepartment(),
+					obInsert.getIdContract(),
+					obInsert.getConvenio(),
+					obInsert.getDuration(),
+					obInsert.getType(),
+					obInsert.getJobLevel(),
+					obInsert.getIncomeMoney(),
+					obInsert.getHolidays()
+				}
+			);
 	}
 
 	@Override

@@ -11,10 +11,6 @@ public class Faculty {
 	/**
 	 * 
 	 */
-	private String adress;
-	/**
-	 * 
-	 */
 	private List<Department> departments;
 	/**
 	 * 
@@ -31,18 +27,6 @@ public class Faculty {
 	 */
 	public void setName(String name){
 		this.name = name;
-	}
-	/**
-	 * Getter of adress
-	 */
-	public String getAdress(){
-		return adress;
-	}
-	/**
-	 * Setter of adress
-	 */
-	public void setAdress(String adress){
-		this.adress = adress;
 	}
 	/**
 	 * Getter of departments
