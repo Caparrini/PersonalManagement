@@ -52,6 +52,13 @@ public class UserMapper extends AbstractMapper<User>{
 			}
 		);
 	}
+	
+	public boolean delete(User obDelete){
+		return this.delete(
+			new Object[] {
+				obDelete.getDNI()
+			});
+	}
 
 	@Override
 	protected User buildObjectFromResultSet(ResultSet rs) throws SQLException {
