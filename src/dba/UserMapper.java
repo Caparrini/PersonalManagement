@@ -13,12 +13,10 @@ public class UserMapper extends AbstractMapper<User>{
 		super(ds);
 	}
 
-	@Override
 	protected String getTableName() {
 		return "Usuario";
 	}
 
-	@Override
 	protected String[] getColumnNames() {
 		return new String[] {
 			"Nombre",
@@ -34,12 +32,10 @@ public class UserMapper extends AbstractMapper<User>{
 		};
 	}
 
-	@Override
 	protected String[] getKeyColumnNames() {
 		return new String[] {"DNI"};
 	}
 
-	@Override
 	public boolean insert(User obInsert) {
 		return this.insert(
 			new Object[] {
