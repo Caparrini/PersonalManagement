@@ -3,10 +3,12 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,7 +41,7 @@ public class LoginView extends JFrame{
 		initGUI();
 	}
 
-	private void initGUI() {
+	private void initGUI(){
 
 		this.getContentPane().setLayout(new BorderLayout());
 		
@@ -72,6 +74,7 @@ public class LoginView extends JFrame{
 	
 	private void initLoginPanel(){
 		
+		
 			this.loginPanel = new JPanel();
 			loginPanel.setLayout(new GridLayout(5, 3, 10, 10));
 			
@@ -82,7 +85,7 @@ public class LoginView extends JFrame{
 					
 				loginPanel.add(user);
 				
-				loginPanel.add(new JLabel("Contraseï¿½a:"));
+				loginPanel.add(new JLabel("Contraseña:"));
 				
 					pass = new JTextField();
 					pass.setPreferredSize(new Dimension(70,25));
@@ -93,7 +96,6 @@ public class LoginView extends JFrame{
 				pnlBotones.setLayout(new GridLayout(1,2,5,5));
 				
 					btnLogin = new JButton("Login");
-					//btnLogin.addActionListener(new AccionCalcular());
 				
 				pnlBotones.add(btnLogin);
 				
@@ -109,6 +111,42 @@ public class LoginView extends JFrame{
 				pnlBotones.add(btnSalir);
 		
 			loginPanel.add(pnlBotones);
+			
+		this.getContentPane().add(loginPanel);
+		
+	}
+	
+	void initLoginPanelv2(){
+		
+		this.loginPanel = new JPanel();
+		loginPanel.setLayout(new BoxLayout(loginPanel, BoxLayout.Y_AXIS));
+		
+			loginPanel.add(new JLabel("Usuario:"));
+			
+				user = new JTextField();
+				user.setSize(new Dimension(70,25));
+				//user.setPreferredSize(new Dimension(70,25));
+				
+			loginPanel.add(user);
+			
+			loginPanel.add(new JLabel("Contraseña:"));
+			
+				pass = new JTextField();
+				pass.setSize(new Dimension(70,25));
+				//pass.setPreferredSize(new Dimension(70,25));
+			
+			loginPanel.add(pass);
+			
+			JPanel buttonPanel = new JPanel();
+			buttonPanel.setLayout(new FlowLayout());
+		
+				this.btnLogin = new JButton("Login");
+				this.btnSalir = new JButton("Salir");
+			
+				buttonPanel.add(this.btnLogin);
+				buttonPanel.add(this.btnSalir);
+				
+			this.loginPanel.add(buttonPanel);
 			
 		this.getContentPane().add(loginPanel);
 		
