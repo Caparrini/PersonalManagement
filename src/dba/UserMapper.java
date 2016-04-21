@@ -61,6 +61,25 @@ public class UserMapper extends AbstractMapper<User>{
 			});
 	}
 
+	public boolean update(User obUpdate){
+		return this.update(
+			new Object[]{
+				obUpdate.getName(),
+				obUpdate.getPrename(),
+				obUpdate.getPassword(),
+				obUpdate.getDNI(),
+				obUpdate.getMail(),
+				obUpdate.getDown(),
+				obUpdate.getHolidays(),
+				obUpdate.getBirthDate(),
+				obUpdate.getCreatDate(),
+				obUpdate.getIsAdmin()
+			}
+			,new Object[]{
+				obUpdate.getDNI()
+			});
+	}
+
 	@Override
 	protected User buildObjectFromResultSet(ResultSet rs) throws SQLException {
 		String [] k = getColumnNames();
