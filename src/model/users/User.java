@@ -97,17 +97,60 @@ public class User {
 	}
 	/**
 	 * Validate name
+	 * El nombre sera correcto siempre que contenga letras incluidas en el abecedario
+	 * Devolvera correcto cuando contenga un espacio o un guion
 	 */
 	public boolean validateName(String name){
-		//TODO
-		return false;
+
+		char[] chars = name.toCharArray();
+		int cuentaEspacio = 0;
+		int cuentaGuion = 0;
+
+		if(chars.length == 0)return false;
+
+		for (char c : chars) {
+			if(!Character.isLetter(c)){
+				if(c==' '){
+					cuentaEspacio++;
+				}
+				else if(c=='-'){
+					cuentaGuion++;
+				}else{
+				return false;
+				}
+			}
+		}
+		if(cuentaEspacio >1  || cuentaGuion > 1) return false;
+		return true;
 	}
 	public boolean validatePrename(String prename){
-		//TODO
-		return false;
+		char[] chars = prename.toCharArray();
+		int cuentaEspacio = 0;
+		int cuentaGuion = 0;
+
+		if(chars.length == 0)return false;
+
+		for (char c : chars) {
+			if(!Character.isLetter(c)){
+				if(c==' '){
+					cuentaEspacio++;
+				}
+				else if(c=='-'){
+					cuentaGuion++;
+				}else{
+					return false;
+				}
+			}
+	     }
+
+	    if(cuentaEspacio >2  || cuentaGuion > 1) return false;
+
+		return true;
 	}
 	/**
 	 * Validate prename
+	 * El apellido sera correcto siempre que contenga letras incluidas en el abecedario
+	 * Devolvera correcto cuando contenga como maximo dos espacios o un guion
 	 */
 	/**
 	 * Getter of DNI
@@ -230,8 +273,11 @@ public class User {
 		this.isAdmin = isAdmin;
 	}
 
+<<<<<<< HEAD
 	public boolean comparePass(char[] pass) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+=======
+>>>>>>> 45b2d0e0d4891200857ddc9a288916c211d113c1
 }
