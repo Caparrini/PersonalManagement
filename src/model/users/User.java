@@ -1,7 +1,5 @@
 package model.users;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 
 public class User {
@@ -65,8 +63,9 @@ public class User {
 	
 	/**
 	 * Validate mail
+	 * @return
 	 */
-	public boolean validateMail(String mail){
+	public static boolean validateMail(String mail){
 		boolean resultado = false;
 
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\."
@@ -81,7 +80,7 @@ public class User {
 	/**
 	 * Validate DNI
 	 */
-	public boolean validateDNI(String DNI){
+	public static boolean validateDNI(String DNI){
 		boolean resultado = false;
 		String dniComprobado;
 		String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -229,5 +228,10 @@ public class User {
 	 */
 	public void setIsAdmin(Boolean isAdmin){
 		this.isAdmin = isAdmin;
+	}
+
+	public boolean comparePass(char[] pass) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
