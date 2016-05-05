@@ -99,7 +99,7 @@ public class User {
 	 * El nombre sera correcto siempre que contenga letras incluidas en el abecedario
 	 * Devolvera correcto cuando contenga un espacio o un guion
 	 */
-	public static boolean validateName(String name){
+	public boolean validateName(String name){
 
 		char[] chars = name.toCharArray();
 		int cuentaEspacio = 0;
@@ -122,7 +122,7 @@ public class User {
 		if(cuentaEspacio >1  || cuentaGuion > 1) return false;
 		return true;
 	}
-	public static boolean validatePrename(String prename){
+	public boolean validatePrename(String prename){
 		char[] chars = prename.toCharArray();
 		int cuentaEspacio = 0;
 		int cuentaGuion = 0;
