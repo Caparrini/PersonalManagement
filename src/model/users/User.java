@@ -273,11 +273,9 @@ public class User {
 		this.isAdmin = isAdmin;
 	}
 
-<<<<<<< HEAD
 	public boolean comparePass(char[] pass) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-=======
->>>>>>> 45b2d0e0d4891200857ddc9a288916c211d113c1
+
 }
