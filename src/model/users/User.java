@@ -63,8 +63,9 @@ public class User {
 	
 	/**
 	 * Validate mail
+	 * @return
 	 */
-	public boolean validateMail(String mail){
+	public static boolean validateMail(String mail){
 		boolean resultado = false;
 
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\."
@@ -79,7 +80,7 @@ public class User {
 	/**
 	 * Validate DNI
 	 */
-	public boolean validateDNI(String DNI){
+	public static boolean validateDNI(String DNI){
 		boolean resultado = false;
 		String dniComprobado;
 		String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -270,6 +271,22 @@ public class User {
 	 */
 	public void setIsAdmin(Boolean isAdmin){
 		this.isAdmin = isAdmin;
-	} 
+	}
+
+	/**
+	 * comparePass (char[] pass)
+	 * @param pass contraseña en formato array de char
+	 * @return true si coincide con el atributo en valor password
+	 */
+	public boolean comparePass(char[] pass) {
+
+		if(pass.length != this.password.length()) return false;
+
+		for(int i = 0; i<pass.length;i++){
+			if(pass[i] != this.password.charAt(i))return false;
+		}
+		
+		return true;
+	}
 
 }
