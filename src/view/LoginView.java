@@ -113,9 +113,10 @@ public class LoginView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setLocationRelativeTo(null);
         setResizable(false);
         pack();
+        setLocationRelativeTo(null);
+
 
     }
 
@@ -125,32 +126,38 @@ public class LoginView extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {
 
-        if(!controlador.validaDNI(jTextFieldDNI.getText())){
+        String currentDNI = jTextFieldDNI.getText();
+
+		if(!controlador.validaDNI(currentDNI)){
         	JOptionPane.showMessageDialog(this,
         	"DNI introducido es inválido.",
         	"DNI inválido",
         	JOptionPane.WARNING_MESSAGE);
         }
 
-        else if(!controlador.UserExist(jTextFieldDNI.getText())){
+        else if(!controlador.UserExist(currentDNI)){
         	JOptionPane.showMessageDialog(this,
         	"Usuario inexistente.",
         	"No dado de alta",
         	JOptionPane.WARNING_MESSAGE);
         }
-        /*else if(controlador.ComparePassword(jTextFieldDNI.getText(),jPasswordField.getPassword())){
+        else if(!controlador.ComparePassword(currentDNI,jPasswordField.getPassword())){
         	JOptionPane.showMessageDialog(this,
         	"Contraseña incorrecta.",
         	"La contraseña introducida no es correcta",
         	JOptionPane.WARNING_MESSAGE);
         }
-        */
-        else
+
+        else{
         	JOptionPane.showMessageDialog(this,
         	"Usuario existente.",
         	"DNI CORRECTO",
-        	JOptionPane.WARNING_MESSAGE);{
+        	JOptionPane.WARNING_MESSAGE);
+            new PMMainFrame(controlador).setVisible(true);
+            this.setVisible(false);
+
         }
+
     }
 
 
