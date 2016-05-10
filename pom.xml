@@ -27,5 +27,10 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 </project>
