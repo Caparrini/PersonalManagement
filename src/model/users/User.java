@@ -273,9 +273,21 @@ public class User {
 		this.isAdmin = isAdmin;
 	}
 
+	/**
+	 * comparePass (char[] pass)
+	 * @param pass contrase�a en formato array de char
+	 * @return true si coincide con el atributo en valor password
+	 */
 	public boolean comparePass(char[] pass) {
-		// TODO Auto-generated method stub
-		return false;
+
+		if(pass.length != this.password.length()) return false;
+
+		for(int i = 0; i<pass.length;i++){
+			if(pass[i] != this.password.charAt(i))return false;
+		}
+
+		return true;
 	}
+
 
 }
