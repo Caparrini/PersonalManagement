@@ -11,7 +11,7 @@ public class User {
 	/**
 	 * 
 	 */
-	protected String password;
+	protected static String password;
 	/**
 	 * 
 	 */
@@ -100,7 +100,7 @@ public class User {
 	 * El nombre sera correcto siempre que contenga letras incluidas en el abecedario
 	 * Devolvera correcto cuando contenga un espacio o un guion
 	 */
-	public boolean validateName(String name){
+	public static boolean validateName(String name){
 
 		char[] chars = name.toCharArray();
 		int cuentaEspacio = 0;
@@ -123,7 +123,7 @@ public class User {
 		if(cuentaEspacio >1  || cuentaGuion > 1) return false;
 		return true;
 	}
-	public boolean validatePrename(String prename){
+	public static boolean validatePrename(String prename){
 		char[] chars = prename.toCharArray();
 		int cuentaEspacio = 0;
 		int cuentaGuion = 0;
@@ -275,19 +275,18 @@ public class User {
 
 	/**
 	 * comparePass (char[] pass)
-	 * @param pass contraseï¿½a en formato array de char
+	 * @param pass contraseña en formato array de char
 	 * @return true si coincide con el atributo en valor password
 	 */
-	public boolean comparePass(char[] pass) {
+	public static boolean comparePass(char[] pass) {
 
-		if(pass.length != this.password.length()) return false;
+		if(pass.length != password.length()) return false;
 
 		for(int i = 0; i<pass.length;i++){
-			if(pass[i] != this.password.charAt(i))return false;
+			if(pass[i] != password.charAt(i))return false;
 		}
-
+		
 		return true;
 	}
-
 
 }
