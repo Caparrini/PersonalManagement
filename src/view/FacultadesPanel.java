@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JOptionPane;
+
 import controller.MainController;
 import model.Department;
 import model.Faculty;
@@ -44,7 +46,12 @@ public class FacultadesPanel extends javax.swing.JPanel {
 
         jTextFieldSearch.setText("Búsqueda...");
 
-        //jListFaculty.setModel(controlador.getFacultyModel());
+        jListFaculty.setModel(controlador.getFacultyModel());
+        jListFaculty.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jListFacultyFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(jListFaculty);
 
         jTextFieldFaculty.setText("Facultad para añadir...");
@@ -53,7 +60,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
 
         jButtonDeleteFaculty.setText("Eliminar Facultad Seleccionada");
 
-        //jListDepartments.setModel(controlador.getDepartmentsModel());
+        jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane2.setViewportView(jListDepartments);
 
         jTextFieldAddDepartment.setText("Añadir Departamento");
@@ -120,6 +127,13 @@ public class FacultadesPanel extends javax.swing.JPanel {
     }// </editor-fold>                        
 
 
+    private void jListFacultyFocusGained(java.awt.event.FocusEvent evt) {
+    	System.out.println(evt.getSource());
+    	System.out.println(evt.getComponent());
+    	System.out.println(evt.toString());
+    	System.out.println(evt.getClass());
+        jListDepartments.setModel(controlador.getDepartmentsModel());
+    } 
     // Variables declaration - do not modify                     
     private MainController controlador;
     private javax.swing.JButton jButtonAddFaculty;

@@ -54,8 +54,7 @@ public class Faculty {
 	}
 	@Override
 	public String toString() {
-		return "Faculty [name=" + name + ", departments=" + departments
-				+ ", address=" + address + "]";
+		return "Facultad de " + name;
 	}
 
 }

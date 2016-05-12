@@ -13,6 +13,7 @@ public class CoreModel {
 	private DefaultListModel<User> users;
 	private DefaultListModel<Faculty> facultys;
 	private DefaultListModel<Department> departments;
+	
 
 	public CoreModel(){
 		users = new DefaultListModel<User>();

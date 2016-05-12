@@ -56,7 +56,7 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 		aux.setNameDepartment(name);
 
 
-		return new Department();
+		return aux;
 	}
 
 }
