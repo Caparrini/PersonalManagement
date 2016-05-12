@@ -1,6 +1,13 @@
 package controller;
 
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
+
 import model.CoreModel;
+import model.Department;
+import model.Faculty;
 import model.users.User;
 import dba.DBFacade;
 
@@ -20,6 +27,24 @@ public class MainController {
 		this.facade = facade;
 	}
 
+	public void FacultysFromDBToModel(){
+		List<Faculty> aux = facade.getFacultys();
+		model.setFacultys(aux);
+	}
+
+	public void DepartmentsFromDBToModel(){
+		List<Department> aux = facade.getDepartments();
+		model.setDepartments(aux);
+	}
+
+	public void WorkersFromDBToModel(){
+		List<User> aux = facade.getUsers();
+		model.setUsers(aux);
+	}
+
+	public DefaultListModel<User> getWorkersModel(){
+		return model.getUsers();
+	}	
 
 	/**
 	 * Busca un usuario
@@ -48,6 +73,34 @@ public class MainController {
 			model.setUserSession(sesion);
 		}
 		return igual;
+	}
+
+	public String getSessionName() {
+		return model.getSessionName();
+	}
+
+	public String getSessionPrename() {
+		return model.getSessionPrename();
+	}
+
+	public boolean getAdminSession() {
+		return model.getSessionIsAdmin();
+	}
+
+	public ListModel<Faculty> getFacultyModel() {
+		return model.getFacultys();
+
+	}
+
+	public ListModel<Department> getDepartmentsModel() {
+		return model.getDepartments();
+	}
+
+	public void initModelFromDB() {
+		this.WorkersFromDBToModel();
+		this.FacultysFromDBToModel();
+		this.DepartmentsFromDBToModel();
+		
 	}
 
 }

@@ -1,4 +1,9 @@
 package view;
+
+import controller.MainController;
+import model.Department;
+import model.Faculty;
+
 /**
  *
  * @author Capa
@@ -8,7 +13,8 @@ public class FacultadesPanel extends javax.swing.JPanel {
     /**
      * Creates new form FacultadesPanel
      */
-    public FacultadesPanel() {
+    public FacultadesPanel(MainController ctrl) {
+    	this.controlador = ctrl;
         initComponents();
     }
 
@@ -24,12 +30,12 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jButtonSearch = new javax.swing.JButton();
         jTextFieldSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListFaculty = new javax.swing.JList();
+        jListFaculty = new javax.swing.JList<Faculty>();
         jTextFieldFaculty = new javax.swing.JTextField();
         jButtonAddFaculty = new javax.swing.JButton();
         jButtonDeleteFaculty = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListDepartments = new javax.swing.JList();
+        jListDepartments = new javax.swing.JList<Department>();
         jTextFieldAddDepartment = new javax.swing.JTextField();
         jTextFieldDepartmentName = new javax.swing.JTextField();
         jButtonDeleteDepartment = new javax.swing.JButton();
@@ -38,11 +44,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
 
         jTextFieldSearch.setText("Búsqueda...");
 
-        jListFaculty.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        //jListFaculty.setModel(controlador.getFacultyModel());
         jScrollPane1.setViewportView(jListFaculty);
 
         jTextFieldFaculty.setText("Facultad para añadir...");
@@ -51,11 +53,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
 
         jButtonDeleteFaculty.setText("Eliminar Facultad Seleccionada");
 
-        jListDepartments.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        //jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane2.setViewportView(jListDepartments);
 
         jTextFieldAddDepartment.setText("Añadir Departamento");
@@ -123,12 +121,13 @@ public class FacultadesPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify                     
+    private MainController controlador;
     private javax.swing.JButton jButtonAddFaculty;
     private javax.swing.JButton jButtonDeleteDepartment;
     private javax.swing.JButton jButtonDeleteFaculty;
     private javax.swing.JButton jButtonSearch;
-    private javax.swing.JList jListDepartments;
-    private javax.swing.JList jListFaculty;
+    private javax.swing.JList<Department> jListDepartments;
+    private javax.swing.JList<Faculty> jListFaculty;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldAddDepartment;

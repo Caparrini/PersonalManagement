@@ -1,48 +1,23 @@
 package model.users;
 
+import java.awt.Component;
 import java.sql.Date;
+
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 
 public class User {
 
-	/**
-	 * 
-	 */
 	protected String DNI;
-	/**
-	 * 
-	 */
 	protected String password;
-	/**
-	 * 
-	 */
 	protected String mail;
-	/**
-	 * 
-	 */
 	protected String name;
-	/**
-	 * 
-	 */
 	private String prename;
-	/**
-	 * 
-	 */
 	private Boolean down;
-	/**
-	 * 
-	 */
 	private Boolean holidays;
-	/**
-	 * 
-	 */
 	private Date birthDate;
-	/**
-	 * 
-	 */
 	private Date creatDate;
-	/**
-	 * 
-	 */
 	private Boolean isAdmin;
 	
 	public User(String dNI, String password, String mail, String name,
@@ -287,6 +262,14 @@ public class User {
 		}
 
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		if(this.isAdmin) s+="Admin "; else s+="User ";
+		s+= this.name+ " " + this.prename + " " + this.DNI;
+		return s;
 	}
 
 
