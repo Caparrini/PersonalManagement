@@ -1,4 +1,8 @@
 package view;
+
+import controller.MainController;
+import model.users.User;
+
 /**
  *
  * @author Capa
@@ -8,7 +12,8 @@ public class PersonalPanel extends javax.swing.JPanel {
     /**
      * Creates new form PersonalPanel
      */
-    public PersonalPanel() {
+    public PersonalPanel(MainController controlador) {
+    	this.controlador = controlador;
         initComponents();
     }
 
@@ -24,18 +29,14 @@ public class PersonalPanel extends javax.swing.JPanel {
         jTextFieldSearch = new javax.swing.JTextField();
         jButtonSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListWorers = new javax.swing.JList();
+        jListWorkers = new javax.swing.JList<User>();
 
         jTextFieldSearch.setText("Búsqueda...");
 
         jButtonSearch.setText("Buscar");
 
-        jListWorers.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jListWorers);
+        jListWorkers.setModel(controlador.getWorkersModel());
+        jScrollPane1.setViewportView(jListWorkers);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,8 +72,9 @@ public class PersonalPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify                     
+    private MainController controlador;
     private javax.swing.JButton jButtonSearch;
-    private javax.swing.JList jListWorers;
+    private javax.swing.JList<User> jListWorkers;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldSearch;
     // End of variables declaration                   

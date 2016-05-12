@@ -153,6 +153,7 @@ public class LoginView extends javax.swing.JFrame {
         	"Usuario existente.",
         	"DNI CORRECTO",
         	JOptionPane.WARNING_MESSAGE);
+        	controlador.initModelFromDB();
             new PMMainFrame(controlador).setVisible(true);
             this.setVisible(false);
 

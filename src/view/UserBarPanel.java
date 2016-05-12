@@ -1,4 +1,7 @@
 package view;
+
+import controller.MainController;
+
 /**
  *
  * @author Capa
@@ -8,7 +11,8 @@ public class UserBarPanel extends javax.swing.JPanel {
     /**
      * Creates new form UserBarPanel
      */
-    public UserBarPanel() {
+    public UserBarPanel(MainController controlador) {
+    	this.controlador=controlador;
         initComponents();
     }
 
@@ -28,9 +32,9 @@ public class UserBarPanel extends javax.swing.JPanel {
         jButtonPerfil = new javax.swing.JButton();
         jToggleButtonSession = new javax.swing.JToggleButton();
 
-        labelName.setText("Nombre");
+        labelName.setText(controlador.getSessionName());
 
-        labelPrename.setText("Apellidos");
+        labelPrename.setText(controlador.getSessionPrename());
 
         buttonExit.setLabel("Salir");
 
@@ -41,7 +45,8 @@ public class UserBarPanel extends javax.swing.JPanel {
             }
         });
 
-        jToggleButtonSession.setText("Sesión");
+        jToggleButtonSession.setText("Administrador");
+        jToggleButtonSession.setEnabled(controlador.getAdminSession());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -84,6 +89,7 @@ public class UserBarPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify                     
+    private MainController controlador;
     private java.awt.Button buttonExit;
     private DigitalClock digitalClock;
     private javax.swing.JButton jButtonPerfil;

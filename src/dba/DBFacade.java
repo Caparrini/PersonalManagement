@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import model.Department;
+import model.Faculty;
 import model.users.User;
 
 /**
@@ -14,10 +16,14 @@ import model.users.User;
 public class DBFacade{
 
     private UserMapper um;
+    private FacultyMapper fm;
+    private DepartmentMapper dm;
 
 
     public DBFacade(DataSource ds) {
         this.um = new UserMapper(ds);
+        this.fm = new FacultyMapper(ds);
+        this.dm = new DepartmentMapper(ds);
     }
 
     /**
@@ -39,5 +45,16 @@ public class DBFacade{
 		return aux;
 	}
 
+	public List<User> getUsers(){
+		return um.selectAll();
+	}
+
+	public List<Faculty> getFacultys() {
+		return fm.selectAll();
+	}
+
+	public List<Department> getDepartments() {
+		return dm.selectAll();
+	}
 
 }

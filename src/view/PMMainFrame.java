@@ -30,18 +30,18 @@ public class PMMainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         banner = new Banner();
-        userBarPanel = new UserBarPanel();
+        userBarPanel = new UserBarPanel(controlador);
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         vacacionesPanel = new VacacionesPanel();
         jPanel5 = new javax.swing.JPanel();
-        facultadesPanel = new FacultadesPanel();
+        facultadesPanel = new FacultadesPanel(controlador);
         jPanel7 = new javax.swing.JPanel();
         departamentosPanel = new DepartamentosPanel();
         jPanel6 = new javax.swing.JPanel();
-        personalPanel = new PersonalPanel();
+        personalPanel = new PersonalPanel(controlador);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personal Management");
