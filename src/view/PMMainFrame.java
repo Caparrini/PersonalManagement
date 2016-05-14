@@ -39,7 +39,7 @@ public class PMMainFrame extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         facultadesPanel = new FacultadesPanel(controlador);
         jPanel7 = new javax.swing.JPanel();
-        departamentosPanel = new DepartamentosPanel();
+        departamentosPanel = new DepartamentosPanel(controlador);
         jPanel6 = new javax.swing.JPanel();
         personalPanel = new PersonalPanel(controlador);
 

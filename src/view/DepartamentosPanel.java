@@ -1,4 +1,10 @@
 package view;
+
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import controller.MainController;
+
 /**
  *
  * @author Capa
@@ -8,8 +14,9 @@ public class DepartamentosPanel extends javax.swing.JPanel {
     /**
      * Creates new form DepartamentosPanel
      */
-    public DepartamentosPanel() {
-        initComponents();
+    public DepartamentosPanel(MainController ctrl) {
+        this.controlador = ctrl;
+		initComponents();
     }
 
     /**
@@ -56,14 +63,21 @@ public class DepartamentosPanel extends javax.swing.JPanel {
             }
         });
 
+        /*
+         * estamos aqui
+         */
         jListWorkers.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+
+        jListDepartamnts.getSelectionModel().addListSelectionListener(new DepartamentosPanel.listHandler(this.controlador));
+
+
         jScrollPane2.setViewportView(jListWorkers);
 
-        jButtonDeleteWorker.setText("Eliminar Trabajador Seleccionado");
+		jButtonDeleteWorker.setText("Eliminar Trabajador Seleccionado");
         jButtonDeleteWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteWorkerActionPerformed(evt);
@@ -172,5 +186,24 @@ public class DepartamentosPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldDepartmentName;
-    // End of variables declaration                   
+    private MainController controlador;
+    // End of variables declaration
+
+
+    public class listHandler implements ListSelectionListener{
+
+		private MainController ctr;
+
+		public listHandler(MainController ctr){
+			this.ctr = ctr;
+		}
+		public void valueChanged(ListSelectionEvent e) {
+			
+			DepartamentosPanel.this.jListWorkers.setModel(this.ctr.getDepartmentsModel());
+			
+		}
+	
+	}
+
 }
+

@@ -27,7 +27,7 @@ public class Main {
 
         CoreModel model = new CoreModel();
         DBFacade facade = new DBFacade(cpds);
-        MainController controlador = new MainController(model,facade);
+        final MainController controlador = new MainController(model,facade);
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
