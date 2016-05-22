@@ -26,7 +26,7 @@ public class Main {
 		//TESTING MAIN
 
         CoreModel model = new CoreModel();
-        DBFacade facade = new DBFacade(cpds);
+        DBFacade facade = DBFacade.getDBFacade(cpds);
         MainController controlador = MainController.getController(model, facade);
 
 		SwingUtilities.invokeLater(new Runnable() {

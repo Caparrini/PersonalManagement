@@ -18,9 +18,16 @@ public class DBFacade{
     private UserMapper um;
     private FacultyMapper fm;
     private DepartmentMapper dm;
+    private static DBFacade sfacade;
 
+    public static DBFacade getDBFacade(DataSource ds){
+    	if(sfacade==null){
+    		sfacade = new DBFacade(ds);
+    	}
+    	return sfacade;
+    }
 
-    public DBFacade(DataSource ds) {
+    private DBFacade(DataSource ds) {
         this.um = new UserMapper(ds);
         this.fm = new FacultyMapper(ds);
         this.dm = new DepartmentMapper(ds);
