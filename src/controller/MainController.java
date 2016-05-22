@@ -14,15 +14,22 @@ import dba.DBFacade;
 /**
  * Controlador para las vistas
  * Utiliza tanto el modelo como la fachada a la base de datos
+ * (Patrón singleton)
  * @author Capa
  *
  */
 public class MainController {
 	private CoreModel model;
 	private DBFacade facade;
+	private static MainController ctrl;
 
-
-	public MainController(CoreModel model, DBFacade facade) {
+	public static MainController getController(CoreModel model, DBFacade facade){
+		if(ctrl==null){
+			ctrl = new MainController(model,facade);
+		}
+		return ctrl;
+	}
+	private MainController(CoreModel model, DBFacade facade) {
 		this.model = model;
 		this.facade = facade;
 	}
