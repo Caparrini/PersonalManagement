@@ -25,7 +25,7 @@ public class Main {
         cpds.setBreakAfterAcquireFailure(true);
 		//TESTING MAIN
 
-        CoreModel model = new CoreModel();
+        CoreModel model = CoreModel.getCoreModel();
         DBFacade facade = DBFacade.getDBFacade(cpds);
         MainController controlador = MainController.getController(model, facade);
 

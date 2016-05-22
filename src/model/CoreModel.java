@@ -13,9 +13,16 @@ public class CoreModel {
 	private DefaultListModel<User> users;
 	private DefaultListModel<Faculty> facultys;
 	private DefaultListModel<Department> departments;
+	private static CoreModel cm;
 	
+	public static CoreModel getCoreModel(){
+		if(cm==null){
+			cm = new CoreModel();
+		}
+		return cm;
+	}
 
-	public CoreModel(){
+	private CoreModel(){
 		users = new DefaultListModel<User>();
 		facultys = new DefaultListModel<Faculty>();
 		departments = new DefaultListModel<Department>();
