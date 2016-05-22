@@ -59,4 +59,10 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 			};
 	}
 
+	@Override
+	protected Object[] getId(Department ob) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

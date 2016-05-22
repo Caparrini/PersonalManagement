@@ -33,6 +33,7 @@ public abstract class AbstractMapper<T> {
     protected abstract String[] getKeyColumnNames();
 
     protected abstract Object[] getValues(T ob);
+	protected abstract Object[] getId(T ob);
     /**
      * Construye un objeto mapeado a partir del ResultSet pasado como parámetro.
      * Esta función es la que establece la correspondencia desde el mundo
@@ -69,16 +70,25 @@ public abstract class AbstractMapper<T> {
         return null;
     }
 
-    //Update database, uses DataAccesor
-    public boolean update(Object[] columnValues, Object[] keyValues) {
-        DataAccessor da = new DataAccessor(ds);
-        return da.updateRows(getTableName(), getKeyColumnNames(), keyValues, getColumnNames(), columnValues);
+    /**
+     *  General Update
+     * @param obUpdate Ob to update
+     * @return if it happens
+     */
+    public boolean update(T obUpdate) {
+    	DataAccessor da = new DataAccessor(ds);
+        return da.updateRows(getTableName(), getKeyColumnNames(), getId(obUpdate), 
+        		getColumnNames(), getValues(obUpdate));
     }
 
-     // ELIMINA UNA FILA EN LA TABLA CORRESPONDIENTE DE LA BASE DE DATOS
-     public boolean delete(Object[] id) {
+	/**
+     * General Delete
+     * @param obDelete Object to delete
+     * @return
+     */
+     public boolean delete(T obDelete) {
          DataAccessor da = new DataAccessor(ds);
-         return da.deleteRow(getTableName(), getKeyColumnNames(), id);
+         return da.deleteRow(getTableName(), getKeyColumnNames(), getId(obDelete));
      }
 
     /**

@@ -62,4 +62,10 @@ public class ContractMapper extends AbstractMapper<Contract>{
 			;
 	}
 
+	@Override
+	protected Object[] getId(Contract ob) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

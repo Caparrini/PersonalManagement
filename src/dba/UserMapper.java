@@ -37,32 +37,6 @@ public class UserMapper extends AbstractMapper<User>{
 		return new String[] {"DNI"};
 	}
 
-	public boolean delete(User obDelete){
-		return this.delete(
-			new Object[] {
-				obDelete.getDNI()
-			});
-	}
-
-	public boolean update(User obUpdate){
-		return this.update(
-			new Object[]{
-				obUpdate.getName(),
-				obUpdate.getPrename(),
-				obUpdate.getPassword(),
-				obUpdate.getDNI(),
-				obUpdate.getMail(),
-				obUpdate.getDown(),
-				obUpdate.getHolidays(),
-				obUpdate.getBirthDate(),
-				obUpdate.getCreatDate(),
-				obUpdate.getIsAdmin()
-			}
-			,new Object[]{
-				obUpdate.getDNI()
-			});
-	}
-
 	@Override
 	protected User buildObjectFromResultSet(ResultSet rs) throws SQLException {
 		String [] k = getColumnNames();
@@ -100,6 +74,13 @@ public class UserMapper extends AbstractMapper<User>{
 					ob.getCreatDate(),
 					ob.getIsAdmin()
 				};
+	}
+
+	@Override
+	protected Object[] getId(User ob) {
+		return new Object[]{
+				ob.getDNI()
+		};
 	}
 
 

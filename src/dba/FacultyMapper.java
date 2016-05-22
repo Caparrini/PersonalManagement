@@ -60,4 +60,10 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 			};
 	}
 
+	@Override
+	protected Object[] getId(Faculty ob) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
