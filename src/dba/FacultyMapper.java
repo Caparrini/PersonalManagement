@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
+
 import model.Department;
 import model.Faculty;
 
@@ -35,14 +36,6 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 	}
 
 	@Override
-	public boolean insert(Faculty obInsert) {
-		return this.insert(new Object[]{
-			obInsert.getName(),
-			obInsert.getAddress()
-		});
-	}
-
-	@Override
 	protected Faculty buildObjectFromResultSet(ResultSet rs)
 			throws SQLException {
 		Faculty aux = new Faculty();
@@ -57,6 +50,14 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 		aux.setDepartments(d);
 
 		return aux;
+	}
+
+	@Override
+	protected Object[] getValues(Faculty ob) {
+		return new Object[]{
+				ob.getName(),
+				ob.getAddress()
+			};
 	}
 
 }

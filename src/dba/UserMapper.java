@@ -37,23 +37,6 @@ public class UserMapper extends AbstractMapper<User>{
 		return new String[] {"DNI"};
 	}
 
-	public boolean insert(User obInsert) {
-		return this.insert(
-			new Object[] {
-				obInsert.getName(),
-				obInsert.getPrename(),
-				obInsert.getPassword(),
-				obInsert.getDNI(),
-				obInsert.getMail(),
-				obInsert.getDown(),
-				obInsert.getHolidays(),
-				obInsert.getBirthDate(),
-				obInsert.getCreatDate(),
-				obInsert.getIsAdmin()
-			}
-		);
-	}
-	
 	public boolean delete(User obDelete){
 		return this.delete(
 			new Object[] {
@@ -101,6 +84,22 @@ public class UserMapper extends AbstractMapper<User>{
 		return new User(DNI,password,mail,name,
 				prename,down,holidays,birthDate,
 				creatDate,isAdmin);
+	}
+
+	@Override
+	protected Object[] getValues(User ob) {
+		return new Object[] {
+					ob.getName(),
+					ob.getPrename(),
+					ob.getPassword(),
+					ob.getDNI(),
+					ob.getMail(),
+					ob.getDown(),
+					ob.getHolidays(),
+					ob.getBirthDate(),
+					ob.getCreatDate(),
+					ob.getIsAdmin()
+				};
 	}
 
 

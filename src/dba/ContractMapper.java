@@ -40,27 +40,26 @@ public class ContractMapper extends AbstractMapper<Contract>{
 	}
 
 	@Override
-	public boolean insert(Contract obInsert) {
-		return this.insert(
-				new Object[] {
-					obInsert.getWorker().getDNI(),
-					obInsert.getDepartment().getIdDepartment(),
-					obInsert.getIdContract(),
-					obInsert.getConvenio(),
-					obInsert.getDuration(),
-					obInsert.getType(),
-					obInsert.getJobLevel(),
-					obInsert.getIncomeMoney(),
-					obInsert.getHolidays()
-				}
-			);
-	}
-
-	@Override
 	protected Contract buildObjectFromResultSet(ResultSet rs)
 			throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	protected Object[] getValues(Contract ob) {
+		return new Object[] {
+					ob.getWorker().getDNI(),
+					ob.getDepartment().getIdDepartment(),
+					ob.getIdContract(),
+					ob.getConvenio(),
+					ob.getDuration(),
+					ob.getType(),
+					ob.getJobLevel(),
+					ob.getIncomeMoney(),
+					ob.getHolidays()
+				}
+			;
 	}
 
 }

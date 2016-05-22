@@ -36,15 +36,6 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 	}
 
 	@Override
-	public boolean insert(Department obInsert) {
-		return this.insert(new Object[]{
-			obInsert.getIdDepartment(),
-			obInsert.getNameDepartment(),
-			obInsert.getFaculty().getName()
-		});
-	}
-
-	@Override
 	protected Department buildObjectFromResultSet(ResultSet rs)
 			throws SQLException {
 		String [] k = getColumnNames();
@@ -57,6 +48,15 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 
 
 		return aux;
+	}
+
+	@Override
+	protected Object[] getValues(Department ob) {
+		return new Object[]{
+				ob.getIdDepartment(),
+				ob.getNameDepartment(),
+				ob.getFaculty().getName()
+			};
 	}
 
 }
