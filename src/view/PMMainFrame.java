@@ -34,6 +34,7 @@ public class PMMainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        contractPanel = new ContractView(controlador);
         jPanel4 = new javax.swing.JPanel();
         vacacionesPanel = new VacacionesPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -67,11 +68,11 @@ public class PMMainFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1003, Short.MAX_VALUE)
+            .addComponent(contractPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1003, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+            .addComponent(contractPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
         );
 
         jTabbedPane.addTab("Contrato", jPanel2);
@@ -174,5 +175,6 @@ public class PMMainFrame extends javax.swing.JFrame {
     private PersonalPanel personalPanel;
     private UserBarPanel userBarPanel;
     private VacacionesPanel vacacionesPanel;
+    private ContractView contractPanel;
     // End of variables declaration                   
 }

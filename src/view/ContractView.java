@@ -86,7 +86,7 @@ public class ContractView extends javax.swing.JPanel {
         l_dni.setText("DNI: ");
         l_dni.setToolTipText("");
 
-        t_dni.setText(contractData.getWorker().getDNI());
+        //t_dni.setText(contractData.getWorker().getDNI());
         
         b_dni.setText("EDITAR");
         b_dni.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class ContractView extends javax.swing.JPanel {
 
         l_id.setText("ID CONTRATADO: ");
 
-        t_id.setText(Integer.toString(contractData.getIdContract()));
+        //t_id.setText(Integer.toString(contractData.getIdContract()));
 
         b_id.setText("EDITAR");
         b_id.addActionListener(new java.awt.event.ActionListener() {
@@ -159,9 +159,9 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosEmpleado.add(p_id);
 
-        jLabel8.setText("CATEGOR�A PROFESIONAL: ");
+        jLabel8.setText("CATEGOR�A PROFESIONAL: ");
 
-        t_categoria.setText(contractData.getJobLevel());
+        //t_categoria.setText(contractData.getJobLevel());
 
         b_categoria.setText("EDITAR");
         b_categoria.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +203,7 @@ public class ContractView extends javax.swing.JPanel {
 
         l_departamento.setText("DEPARTAMENTO: ");
 
-        t_departamento.setText(contractData.getDepartment().getNameDepartment());
+        //t_departamento.setText(contractData.getDepartment().getNameDepartment());
 
         b_departamento.setText("EDITAR");
         b_departamento.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +240,7 @@ public class ContractView extends javax.swing.JPanel {
 
         l_convenio.setText("CONVENIO: ");
 
-        t_convenio.setText(contractData.getConvenio());
+        //t_convenio.setText(contractData.getConvenio());
 
         
         b_convenio.setText("EDITAR");
@@ -276,9 +276,9 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosContrato.add(p_convenio);
 
-        l_duracion.setText("DURACI�N: ");
+        l_duracion.setText("DURACI�N: ");
 
-        t_duracion.setText(Integer.toString(contractData.getDuration()));
+        //t_duracion.setText(Integer.toString(contractData.getDuration()));
         
         b_duracion.setText("EDITAR");
         b_duracion.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +315,7 @@ public class ContractView extends javax.swing.JPanel {
 
         l_tipo.setText("TIPO: ");
 
-        t_tipo.setText(contractData.getType());
+        //t_tipo.setText(contractData.getType());
 
         b_tipo.setText("EDITAR");
         b_tipo.addActionListener(new java.awt.event.ActionListener() {
@@ -350,9 +350,9 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosContrato.add(p_tipo);
 
-        l_remuneracion.setText("REMUNERACI�N: ");
+        l_remuneracion.setText("REMUNERACIÓN: ");
 
-        t_remuneracion.setText(Double.toString(contractData.getIncomeMoney()));
+        //t_remuneracion.setText(Double.toString(contractData.getIncomeMoney()));
 
         b_remuneracion.setText("EDITAR");
         b_remuneracion.addActionListener(new java.awt.event.ActionListener() {
@@ -389,7 +389,7 @@ public class ContractView extends javax.swing.JPanel {
 
         l_vacaciones.setText("VACACIONES: ");
 
-        t_vacaciones.setText(Integer.toString(contractData.getHolidays()));
+        //t_vacaciones.setText(Integer.toString(contractData.getHolidays()));
 
         b_vacaciones.setText("EDITAR");
         b_vacaciones.addActionListener(new java.awt.event.ActionListener() {
@@ -501,8 +501,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setDuration(duracion);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"Duraci�n introducida es inválida.",
-                	"Duraci�n inválida",
+                	"Duración introducida es inválida.",
+                	"Duración inválida",
                 	JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -515,8 +515,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setIncomeMoney(income);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"Remuneraci�n introducida es inválida.",
-                	"Remuneraci�n inválida",
+                	"Remuneración introducida es inválida.",
+                	"Remuneración inválida",
                 	JOptionPane.WARNING_MESSAGE);
         }
 	}
