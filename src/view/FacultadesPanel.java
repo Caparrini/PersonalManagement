@@ -38,7 +38,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jButtonDeleteFaculty = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListDepartments = new javax.swing.JList<Department>();
-        jTextFieldAddDepartment = new javax.swing.JTextField();
+        jButtonAddDepartment = new javax.swing.JButton();
         jTextFieldDepartmentName = new javax.swing.JTextField();
         jButtonDeleteDepartment = new javax.swing.JButton();
 
@@ -63,7 +63,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane2.setViewportView(jListDepartments);
 
-        jTextFieldAddDepartment.setText("Añadir Departamento");
+        jButtonAddDepartment.setText("Añadir Departamento");
 
         jTextFieldDepartmentName.setText("Departamento para añadir...");
 
@@ -88,7 +88,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
                             .addComponent(jTextFieldDepartmentName)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldAddDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonAddDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonDeleteDepartment))
                                 .addGap(0, 244, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
@@ -114,7 +114,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldDepartmentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAddDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAddDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 45, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,7 +144,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
     private javax.swing.JList<Faculty> jListFaculty;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextFieldAddDepartment;
+    private javax.swing.JButton jButtonAddDepartment;
     private javax.swing.JTextField jTextFieldDepartmentName;
     private javax.swing.JTextField jTextFieldFaculty;
     private javax.swing.JTextField jTextFieldSearch;
