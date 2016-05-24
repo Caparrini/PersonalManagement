@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -46,23 +47,23 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jButtonDeleteDepartment = new javax.swing.JButton();
 
         jButtonSearch.setText("Buscar");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchActionPerformed(evt);
+            }
+        });
 
         jTextFieldSearch.setText("Búsqueda...");
 
         jListFaculty.setModel(controlador.getFacultyModel());
-        jListFaculty.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jListFacultyFocusGained(evt);
-            }
-        });
+
         jListFaculty.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 2) {
                     int index = jListFaculty.locationToIndex(e.getPoint());
-                    //model.getElementAt(index);
                     controlador.changeDepartmentsModel(index);
-                    //TODO BORRAR MODEL ACTUAL
+                    jListDepartments.removeAll();
                     jListDepartments.setModel(controlador.getDepartmentsModel());
                     jListFaculty.repaint();
                 }
@@ -73,17 +74,37 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jTextFieldFaculty.setText("Facultad para añadir...");
 
         jButtonAddFaculty.setText("Añadir facultad");
+        jButtonAddFaculty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddFacultyActionPerformed(evt);
+            }
+        });
 
         jButtonDeleteFaculty.setText("Eliminar Facultad Seleccionada");
+        jButtonDeleteFaculty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteFacultyActionPerformed(evt);
+            }
+        });
 
         jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane2.setViewportView(jListDepartments);
 
         jButtonAddDepartment.setText("Añadir Departamento");
+        jButtonAddDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddDepartmentActionPerformed(evt);
+            }
+        });
 
         jTextFieldDepartmentName.setText("Departamento para añadir...");
 
         jButtonDeleteDepartment.setText("Eliminar Departamento Seleccionado");
+        jButtonDeleteDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteDepartmentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,16 +162,56 @@ public class FacultadesPanel extends javax.swing.JPanel {
                     .addComponent(jTextFieldFaculty)))
         );
     }// </editor-fold>                        
+    protected void jButtonSearchActionPerformed(ActionEvent evt) {
+		String filter = jTextFieldSearch.getText();
+		jListFaculty.removeAll();
+		controlador.FacultysFromDBToModel(filter);
+		jListFaculty.setModel(controlador.getFacultyModel());
+		jListDepartments.removeAll();
+		jListDepartments.repaint();
+		jListFaculty.repaint();
+	}
 
-
-    private void jListFacultyFocusGained(java.awt.event.FocusEvent evt) {
-    	System.out.println(evt.getSource());
-    	System.out.println(evt.getComponent());
-    	System.out.println(evt.toString());
-    	System.out.println(evt.getClass());
+	protected void jButtonAddDepartmentActionPerformed(ActionEvent evt) {
+        int index = jListFaculty.getSelectedIndex();
+        String nd = jTextFieldDepartmentName.getText();
+        Department aux = new Department();
+        aux.setNameDepartment(nd);
+        controlador.addDepartmentToFaculty(aux,index);
+        controlador.changeDepartmentsModel(index);
+        jListDepartments.removeAll();
         jListDepartments.setModel(controlador.getDepartmentsModel());
-    } 
-    // Variables declaration - do not modify                     
+        jListDepartments.repaint();
+	}
+
+	protected void jButtonAddFacultyActionPerformed(ActionEvent evt) {
+        String nf = jTextFieldFaculty.getText();
+        Faculty aux = new Faculty();
+        aux.setName(nf);
+        controlador.insertFaculty(aux);
+        jListDepartments.setModel(controlador.getDepartmentsModel());
+        jListFaculty.repaint();
+	}
+
+	protected void jButtonDeleteDepartmentActionPerformed(ActionEvent evt) {
+        int index = jListFaculty.getSelectedIndex();
+        int dindex = jListDepartments.getSelectedIndex();
+        controlador.deleteDepartment(index,dindex);
+        controlador.changeDepartmentsModel(index);
+        jListDepartments.removeAll();
+        jListDepartments.setModel(controlador.getDepartmentsModel());
+        jListDepartments.repaint();
+	}
+
+	protected void jButtonDeleteFacultyActionPerformed(ActionEvent evt) {
+        int index = jListFaculty.getSelectedIndex();
+        controlador.deleteFaculty(index);
+        jListDepartments.removeAll();
+        jListDepartments.setModel(controlador.getDepartmentsModel());
+        jListDepartments.repaint();
+        jListFaculty.repaint();
+	}
+	// Variables declaration - do not modify                     
     private MainController controlador;
     private javax.swing.JButton jButtonAddFaculty;
     private javax.swing.JButton jButtonDeleteDepartment;

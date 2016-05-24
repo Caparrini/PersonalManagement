@@ -43,7 +43,10 @@ public class MainController {
 		List<Faculty> aux = facade.getFacultysWithDepartments();
 		model.setFacultys(aux);
 	}
-
+	public void FacultysFromDBToModel(String filter) {
+		List<Faculty> aux = facade.getFacultysWithDepartments(filter);
+		model.setFacultys(aux);
+	}
 	public void DepartmentsFromDBToModel(){
 		List<Department> aux = facade.getDepartments();
 		model.setDepartments(aux);
@@ -118,5 +121,34 @@ public class MainController {
 	public void changeDepartmentsModel(int index) {
 		model.setDepartments(model.getFacultyAt(index).getDepartments());
 	}
+	public void deleteFaculty(int index) {
+		Faculty aux = model.getFacultyAt(index);
+		model.removeFacultyAt(index);
+		model.removeAllDepartments();
+		facade.deleteFaculty(aux);
+	}
+	public void deleteDepartment(int index, int dindex){
+		Department aux = model.getFacultyAt(index).getDepartments().get(dindex);
+		model.removeFacultyDepartment(index,dindex);
+		model.removeDepartment(dindex);	
+		facade.deleteDepartment(aux);
+	}
+	public void addDepartmentToFaculty(Department aux, int index) {
+		aux.setFaculty(model.getFacultyAt(index));
+		int id = facade.insert(aux);//y devuelve index auto_increment
+		if(id!=-1){
+			aux.setIdDepartment(id);
+			model.addFacultyDepartment(index,aux);
+		}else{
+			//TODO VENTANA EMERGENTE DE ERRORDE DEPARTAMENTO DUPLICADO
+		}
+
+	}
+	public void insertFaculty(Faculty aux) {
+		if(facade.insert(aux)){
+			model.addFaculty(aux);
+		}
+	}
+
 
 }
