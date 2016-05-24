@@ -147,8 +147,9 @@ public class DepartamentosPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                   
 
-    private void jButtonAddWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
+    private void jButtonAddWorkerActionPerformed(java.awt.event.ActionEvent evt) {
+    	// TODO debe mostrar la ventana recientemente creada para añadir asi un usuario nuevo
+        LoginForm loginForm = new LoginForm();
     }                                                
 
     private void jButtonAddDepartmentActionPerformed(java.awt.event.ActionEvent evt) {                                                     

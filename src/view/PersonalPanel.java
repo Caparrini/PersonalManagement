@@ -37,7 +37,7 @@ public class PersonalPanel extends javax.swing.JPanel {
         jTextFieldSearch.setText("Búsqueda...");
 
         jButtonSearch.setText("Buscar");
-        jButtonSearch.addActionListener(new botonListener(this.jListWorkers.getSelectedValue()));
+        jButtonSearch.addActionListener(new botonListener(this.jTextFieldSearch.getText()));
 
         jListWorkers.setModel(controlador.getWorkersModel());
         jScrollPane1.setViewportView(jListWorkers);
@@ -85,10 +85,10 @@ public class PersonalPanel extends javax.swing.JPanel {
     
     private class botonListener implements ActionListener{
 
-    	private User usuario;
+    	private String busqueda;
     	
-    	public botonListener(User usuario){
-    		this.usuario = usuario;
+    	public botonListener(String busqueda){
+    		this.busqueda = busqueda;
     	}
 	
 		public void actionPerformed(ActionEvent e) {
@@ -96,6 +96,7 @@ public class PersonalPanel extends javax.swing.JPanel {
 			//Aqui llamar al controlador y pasarle el usuario que
 			//viene como parametro en el constructor
 			//PersonalPanel.this.controlador.BUSCARUSUARIODELABASEDEDATOS
+			//Y que saque en jListWorkers el resultado
 		
 		}
 	
