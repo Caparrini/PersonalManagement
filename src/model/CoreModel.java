@@ -33,6 +33,7 @@ public class CoreModel {
 	}
 
 	public void setUsers(List<User> usersIn) {
+		users = new DefaultListModel<User>();
 		Iterator<User> it = usersIn.iterator();
 		while(it.hasNext()){
 			users.addElement(it.next());
@@ -68,6 +69,7 @@ public class CoreModel {
 	}
 
 	public void setFacultys(List<Faculty> facIn) {
+		facultys = new DefaultListModel<Faculty>();
 		Iterator<Faculty> it = facIn.iterator();
 		while(it.hasNext()){
 			facultys.addElement(it.next());
@@ -75,6 +77,7 @@ public class CoreModel {
 	}
 
 	public void setDepartments(List<Department> depIn) {
+		departments = new DefaultListModel<Department>();
 		Iterator<Department> it = depIn.iterator();
 		while(it.hasNext()){
 			departments.addElement(it.next());
@@ -84,6 +87,34 @@ public class CoreModel {
 	public Faculty getFacultyAt(int index) {
 		return facultys.getElementAt(index);
 	}
-	
+
+	public void removeFacultyAt(int index) {
+		facultys.remove(index);
+	}
+
+	public void removeDepartment(int dindex) {
+		departments.remove(dindex);
+	}
+
+	public void removeFacultyDepartment(int index, int dindex) {
+		Faculty a = facultys.getElementAt(index);
+		a.removeDepartment(dindex);
+		facultys.setElementAt(a, index);
+	}
+
+	public void addFacultyDepartment(int index, Department aux) {
+		Faculty a = facultys.getElementAt(index);
+		a.addDepartment(aux);
+		facultys.setElementAt(a, index);
+	}
+
+	public void removeAllDepartments() {
+		departments = new DefaultListModel<Department>();
+	}
+
+	public void addFaculty(Faculty aux) {
+		facultys.addElement(aux);
+	}
+
 
 }

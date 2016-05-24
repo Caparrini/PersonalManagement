@@ -1,11 +1,11 @@
 package model.users;
 
-import java.awt.Component;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
+
+import model.Contract;
 
 public class User {
 
@@ -19,6 +19,7 @@ public class User {
 	private Date birthDate;
 	private Date creatDate;
 	private Boolean isAdmin;
+	private List<Contract> contratos;
 	
 	public User(String dNI, String password, String mail, String name,
 			String prename, Boolean down, Boolean holidays, Date birthDate,
@@ -34,8 +35,14 @@ public class User {
 		this.birthDate = birthDate;
 		this.creatDate = creatDate;
 		this.isAdmin = isAdmin;
+		contratos = new ArrayList<Contract>();
 	}
-	
+	public void addContract(Contract c){
+		contratos.add(c);
+	}
+	public void removeContract(int i){
+		contratos.remove(i);
+	}
 	/**
 	 * Validate mail
 	 * @return

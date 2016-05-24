@@ -55,5 +55,8 @@ public class Faculty {
 	public void addDepartment(Department opt) {
         departments.add(opt);
 	}
+	public void removeDepartment(int index) {
+        departments.remove(index);
+	}
 
 }
