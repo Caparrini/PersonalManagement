@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-05-2016 a las 14:46:49
+-- Tiempo de generación: 24-05-2016 a las 20:35:45
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -52,19 +52,18 @@ INSERT INTO `Contrato` (`ContratadoDNI`, `DepartamentoID`, `IdContrato`, `Conven
 --
 
 CREATE TABLE IF NOT EXISTS `Departamento` (
-  `IdDepartamento` int(11) NOT NULL,
+`IdDepartamento` int(11) NOT NULL,
   `NombreDep` varchar(50) NOT NULL,
   `NombreFacultad` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Departamento`
 --
 
 INSERT INTO `Departamento` (`IdDepartamento`, `NombreDep`, `NombreFacultad`) VALUES
-(2, 'aplicada', 'Biologia'),
-(58, 'Inteligencia Artificial', 'Informática'),
-(4, 'PAS', 'Biologia');
+(58, 'Hardware', 'Informática'),
+(59, 'Sistemas Inteligentes', 'Informática');
 
 -- --------------------------------------------------------
 
@@ -74,7 +73,7 @@ INSERT INTO `Departamento` (`IdDepartamento`, `NombreDep`, `NombreFacultad`) VAL
 
 CREATE TABLE IF NOT EXISTS `Facultad` (
   `Nombre` varchar(50) NOT NULL,
-  `Direccion` varchar(50) NOT NULL
+  `Direccion` varchar(50) DEFAULT 'Desconocida'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -82,9 +81,12 @@ CREATE TABLE IF NOT EXISTS `Facultad` (
 --
 
 INSERT INTO `Facultad` (`Nombre`, `Direccion`) VALUES
-('Biologia', 'direciooon'),
-('Derecho', 'sdfasdsf2'),
-('Informática', 'asdfsadgasfas');
+('CAU', NULL),
+('Comunicación Audiovisual', NULL),
+('Derecho', NULL),
+('Física', NULL),
+('Informática', NULL),
+('Matemáticas', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 --
 
 INSERT INTO `Usuario` (`Nombre`, `Apellidos`, `Password`, `DNI`, `Mail`, `Baja`, `Vacaciones`, `FechNac`, `FechCreac`, `Admin`) VALUES
-('Puto', 'Amo', 'password', '03943684N', 'mail@suda.es', 0, 0, '1990-12-09', '2016-05-10', 1),
+('Admin', 'Ejemplo', 'password', '03943684N', 'mail@example.com', 0, 0, '1990-12-09', '2016-05-10', 1),
 ('Antonio', 'Caparrini', '5f4dcc3b5aa765d61d8327deb882cf99', '10001000N', 'asdf@asdf.com', 0, 0, '2016-05-17', '2016-05-27', 1),
 ('Ivan', 'Bancas', 'password', '53624284Z', 'asdas@sfds.com', 0, 0, '2016-05-03', '2016-05-25', 1);
 
@@ -142,6 +144,15 @@ ALTER TABLE `Facultad`
 ALTER TABLE `Usuario`
  ADD PRIMARY KEY (`DNI`);
 
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `Departamento`
+--
+ALTER TABLE `Departamento`
+MODIFY `IdDepartamento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
