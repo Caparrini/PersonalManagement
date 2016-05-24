@@ -64,4 +64,8 @@ public class DBFacade{
 		return dm.selectAll();
 	}
 
+	public List<Faculty> getFacultysWithDepartments(){
+		return fm.selectAllWithOptions();
+	}
+
 }

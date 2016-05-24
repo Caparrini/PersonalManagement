@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JOptionPane;
 
 import controller.MainController;
@@ -50,6 +53,19 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jListFaculty.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jListFacultyFocusGained(evt);
+            }
+        });
+        jListFaculty.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jListFaculty.locationToIndex(e.getPoint());
+                    //model.getElementAt(index);
+                    controlador.changeDepartmentsModel(index);
+                    //TODO BORRAR MODEL ACTUAL
+                    jListDepartments.setModel(controlador.getDepartmentsModel());
+                    jListFaculty.repaint();
+                }
             }
         });
         jScrollPane1.setViewportView(jListFaculty);

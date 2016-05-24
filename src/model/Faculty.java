@@ -1,21 +1,17 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty {
 
-	/**
-	 *
-	 */
 	private String name;
-	/**
-	 * 
-	 */
 	private List<Department> departments;
-	/**
-	 * 
-	 */
 	private String address;
+
+	public Faculty(){
+		departments = new ArrayList<Department>();
+	}
 	/**
 	 * Getter of name
 	 */
@@ -55,6 +51,9 @@ public class Faculty {
 	@Override
 	public String toString() {
 		return "Facultad de " + name;
+	}
+	public void addDepartment(Department opt) {
+        departments.add(opt);
 	}
 
 }

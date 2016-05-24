@@ -39,6 +39,11 @@ public class MainController {
 		model.setFacultys(aux);
 	}
 
+	public void FacultysWithDepartmentsFromDBToModel(){
+		List<Faculty> aux = facade.getFacultysWithDepartments();
+		model.setFacultys(aux);
+	}
+
 	public void DepartmentsFromDBToModel(){
 		List<Department> aux = facade.getDepartments();
 		model.setDepartments(aux);
@@ -105,9 +110,13 @@ public class MainController {
 
 	public void initModelFromDB() {
 		this.WorkersFromDBToModel();
-		this.FacultysFromDBToModel();
+		//this.FacultysFromDBToModel();
+		this.FacultysWithDepartmentsFromDBToModel();
 		this.DepartmentsFromDBToModel();
 		
+	}
+	public void changeDepartmentsModel(int index) {
+		model.setDepartments(model.getFacultyAt(index).getDepartments());
 	}
 
 }

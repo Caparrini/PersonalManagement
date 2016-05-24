@@ -42,7 +42,6 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 		Department aux = new Department();
 		int idDep = rs.getInt(k[0]);
 		String name = rs.getString(k[1]);
-		String facName = rs.getString(k[2]);
 		aux.setIdDepartment(idDep);
 		aux.setNameDepartment(name);
 

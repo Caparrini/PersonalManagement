@@ -80,6 +80,10 @@ public class CoreModel {
 			departments.addElement(it.next());
 		}
 	}
+
+	public Faculty getFacultyAt(int index) {
+		return facultys.getElementAt(index);
+	}
 	
 
 }
