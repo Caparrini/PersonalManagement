@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-
 import javax.sql.DataSource;
 import model.Department;
 import model.Faculty;
@@ -20,6 +20,18 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 		dm = new DepartmentMapper(ds);
 	}
 
+	public boolean delete(Faculty ob){
+		List<Department> del = ob.getDepartments();
+		boolean suc = true;
+		Iterator<Department> it= del.iterator();
+
+		while(it.hasNext()) {
+			Department dep = it.next();
+			suc &=dm.delete(dep);
+		}
+		suc&=super.delete(ob);
+		return suc;
+	}
 	@Override
 	protected String getTableName() {
 		return "Facultad";
@@ -58,20 +70,16 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 	}
     /**
      * Select All
-     * @return Lista de Preguntas de una tabla con sus respuestas
+     * @return List of Facultys with their departments
      */
-    public List<Faculty> selectAllWithOptions() {
+    public List<Faculty> selectAllWithDepartments() {
         List<Faculty> res = Collections.emptyList();
 
         String facTab = getTableName();
         String depTab = dm.getTableName();
         String facName = getKeyColumnNames()[0];
-        String depId = dm.getKeyColumnNames()[0];
-        String depName = dm.getColumnNames()[1];
         String depFK = dm.getColumnNames()[2];
 
-        // SELECT * FROM questions
-        // LEFT JOIN answers ON questions.id = answers.questionId;
         String sql = "SELECT * FROM " + facTab +
                      " LEFT JOIN " + depTab + " ON " + facTab + "." + facName +
                      " = " + depTab + "." + depFK;
@@ -90,27 +98,24 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
     }
     /**
      * Select All with the string passed as filter
-     * @param text must content the question
-     * @return Lista de Preguntas de una tabla con sus respuestas
+     * @param text must content the Faculty's name
+     * @return List of Facultys
      */
-    public List<Faculty> selectAllWithOptions(String text) {
+    public List<Faculty> selectAllWithDepartments(String text) {
         List<Faculty> res = Collections.emptyList();
 
         String facTab = getTableName();
         String depTab = dm.getTableName();
-        String selfId = getKeyColumnNames()[0];
-        String addr = getColumnNames()[0];
-        String depId = dm.getKeyColumnNames()[0];
-        String depName = dm.getColumnNames()[1];
-        String fk = dm.getColumnNames()[2];
+        String facName = getKeyColumnNames()[0];
+        String depFK = dm.getColumnNames()[2];
 
         // SELECT * FROM questions
         // LEFT JOIN answers ON questions.id = answers.questionId
         // WHERE answers.content LIKE ?;
-        String sql = "SELECT * FROM "+ facTab +
-                     " LEFT JOIN " + depTab + " ON " + facTab + "." + selfId +
-                     " = " +  depTab + "." + depId +
-                     " WHERE " + facTab + "." + selfId + " LIKE ?";
+        String sql = "SELECT * FROM " + facTab +
+                " LEFT JOIN " + depTab + " ON " + facTab + "." + facName +
+                " = " + depTab + "." + depFK +
+                     " WHERE " + facTab + "." + facName + " LIKE ?";
 
         String filter = "%" + text + "%";
 
@@ -159,8 +164,9 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
 
 	@Override
 	protected Object[] getId(Faculty ob) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Object[] {
+				ob.getName()
+		};
 	}
 
 }

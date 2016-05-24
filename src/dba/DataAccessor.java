@@ -2,7 +2,9 @@ package dba;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 
 import javax.sql.DataSource;
@@ -82,6 +84,30 @@ public class DataAccessor {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    /**
+     * @param tableName
+     * @param fields
+     * @param values
+     * @return -1 error, id another case
+     */
+    public int insertRowGK(String tableName, String[] fields, Object[] values) {
+        String sql = generateInsertStatement(tableName, fields);
+
+        try (Connection con = ds.getConnection();
+            PreparedStatement pst = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
+
+            for (int i = 0; i < values.length; i++) {
+                pst.setObject(i + 1, values[i]);
+            }
+
+            int numRows = pst.executeUpdate();
+            ResultSet a = pst.getGeneratedKeys();
+            if (a.next() & numRows==1) return a.getInt(1); else return -1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
         }
     }
 

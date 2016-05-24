@@ -65,7 +65,26 @@ public class DBFacade{
 	}
 
 	public List<Faculty> getFacultysWithDepartments(){
-		return fm.selectAllWithOptions();
+		return fm.selectAllWithDepartments();
+	}
+	public List<Faculty> getFacultysWithDepartments(String filter){
+		return fm.selectAllWithDepartments(filter);
+	}
+
+	public void deleteFaculty(Faculty aux) {
+		fm.delete(aux);
+	}
+
+	public void deleteDepartment(Department aux) {
+		dm.delete(aux);
+	}
+
+	public int insert(Department aux) {
+		return dm.insertGK(aux);
+	}
+
+	public boolean insert(Faculty aux) {
+		return fm.insert(aux);
 	}
 
 }

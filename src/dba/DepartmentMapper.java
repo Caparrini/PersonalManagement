@@ -1,12 +1,10 @@
 package dba;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
 import model.Department;
-import model.users.User;
 
 public class DepartmentMapper extends AbstractMapper<Department>{
 
@@ -60,8 +58,28 @@ public class DepartmentMapper extends AbstractMapper<Department>{
 
 	@Override
 	protected Object[] getId(Department ob) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Object[] {
+				ob.getIdDepartment()
+		};
+	}
+
+	public int insertGK(Department aux) {
+		DataAccessor da = new DataAccessor(ds);
+		return da.insertRowGK(getTableName(), getColumnNamesNI(), getValuesNI(aux));
+	}
+
+	private Object[] getValuesNI(Department ob) {
+		return new Object[]{
+				ob.getNameDepartment(),
+				ob.getFaculty().getName()
+			};
+	}
+
+	private String[] getColumnNamesNI() {
+		return new String[] {
+				"NombreDep",
+				"NombreFacultad"
+			};
 	}
 
 }
