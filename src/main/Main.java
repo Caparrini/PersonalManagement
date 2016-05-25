@@ -31,8 +31,7 @@ public class Main {
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new LoginView(controlador).setVisible(true);;
-
+				new LoginView(controlador).setVisible(true);
 			}
 		});
 
