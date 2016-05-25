@@ -13,6 +13,7 @@ public class CoreModel {
 	private DefaultListModel<User> users;
 	private DefaultListModel<Faculty> facultys;
 	private DefaultListModel<Department> departments;
+	private int facultyFocus;
 	private static CoreModel cm;
 	
 	public static CoreModel getCoreModel(){
@@ -26,6 +27,7 @@ public class CoreModel {
 		users = new DefaultListModel<User>();
 		facultys = new DefaultListModel<Faculty>();
 		departments = new DefaultListModel<Department>();
+		facultyFocus = 0;
 	}
 
 	public DefaultListModel<User> getUsers() {
@@ -116,5 +118,11 @@ public class CoreModel {
 		facultys.addElement(aux);
 	}
 
+	public int getFacultyFocus() {
+		return facultyFocus;
+	}
+	public void setFacultyFocus(int nf){
+		facultyFocus = nf;
+	}
 
 }
