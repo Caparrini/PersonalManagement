@@ -130,13 +130,13 @@ public class LoginView extends javax.swing.JFrame {
         	JOptionPane.WARNING_MESSAGE);
         }
 
-        else if(!controlador.UserExist(currentDNI)){
+        else if(!controlador.userExist(currentDNI)){
         	JOptionPane.showMessageDialog(this,
         	"Usuario inexistente.",
         	"No dado de alta",
         	JOptionPane.WARNING_MESSAGE);
         }
-        else if(!controlador.ComparePassword(currentDNI,jPasswordField.getPassword())){
+        else if(!controlador.comparePassword(currentDNI,jPasswordField.getPassword())){
         	JOptionPane.showMessageDialog(this,
         	"Contraseña incorrecta.",
         	"La contraseña introducida no es correcta",
