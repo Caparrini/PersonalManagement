@@ -1,16 +1,12 @@
 package controller;
-
 import java.util.List;
-
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
-
 import model.CoreModel;
 import model.Department;
 import model.Faculty;
 import model.users.User;
 import dba.DBFacade;
-
 /**
  * Controlador para las vistas
  * Utiliza tanto el modelo como la fachada a la base de datos
@@ -34,29 +30,32 @@ public class MainController {
 		this.facade = facade;
 	}
 
-	public void FacultysFromDBToModel(){
+	public void facultysFromDBToModel(){
 		List<Faculty> aux = facade.getFacultys();
 		model.setFacultys(aux);
 	}
 
-	public void FacultysWithDepartmentsFromDBToModel(){
+	public void facultysWithDepartmentsFromDBToModel(){
 		List<Faculty> aux = facade.getFacultysWithDepartments();
 		model.setFacultys(aux);
 	}
-	public void FacultysFromDBToModel(String filter) {
+	public void facultysFromDBToModel(String filter) {
 		List<Faculty> aux = facade.getFacultysWithDepartments(filter);
 		model.setFacultys(aux);
 	}
-	public void DepartmentsFromDBToModel(){
+	public void departmentsFromDBToModel(){
 		List<Department> aux = facade.getDepartments();
 		model.setDepartments(aux);
 	}
 
-	public void WorkersFromDBToModel(){
+	public void workersFromDBToModel(){
 		List<User> aux = facade.getUsers();
 		model.setUsers(aux);
 	}
-
+	public void workersFromDBToModel(String filter) {
+		List<User> aux = facade.getUsers(filter);
+		model.setUsers(aux);
+	}
 	public DefaultListModel<User> getWorkersModel(){
 		return model.getUsers();
 	}	
@@ -66,7 +65,7 @@ public class MainController {
 	 * @param text
 	 * @return
 	 */
-	public boolean UserExist(String text) {
+	public boolean userExist(String text) {
 		boolean existUser = facade.findUser(text);
 		return existUser;
 	}
@@ -81,7 +80,7 @@ public class MainController {
 	 * @param pass
 	 * @return TRUE si las contraseñas son iguales
 	 */
-	public boolean ComparePassword(String DNI,char[] pass) {
+	public boolean comparePassword(String DNI,char[] pass) {
 		User sesion = facade.getUser(DNI);
 		boolean igual = sesion.comparePass(pass);
 		if(igual){
@@ -112,11 +111,8 @@ public class MainController {
 	}
 
 	public void initModelFromDB() {
-		this.WorkersFromDBToModel();
-		//this.FacultysFromDBToModel();
-		this.FacultysWithDepartmentsFromDBToModel();
-		this.DepartmentsFromDBToModel();
-		
+		this.workersFromDBToModel();
+		this.facultysWithDepartmentsFromDBToModel();
 	}
 	public void changeDepartmentsModel(int index) {
 		model.setDepartments(model.getFacultyAt(index).getDepartments());
@@ -135,7 +131,7 @@ public class MainController {
 	}
 	public void addDepartmentToFaculty(Department aux, int index) {
 		aux.setFaculty(model.getFacultyAt(index));
-		int id = facade.insert(aux);//y devuelve index auto_increment
+		int id = facade.insert(aux);
 		if(id!=-1){
 			aux.setIdDepartment(id);
 			model.addFacultyDepartment(index,aux);
@@ -149,6 +145,10 @@ public class MainController {
 			model.addFaculty(aux);
 		}
 	}
-
-
+	public int getIndexSelectedFaculty() {
+		return model.getFacultyFocus();
+	}
+	public void changeFacultyFocus(int index) {
+		model.setFacultyFocus(index);
+	}
 }
