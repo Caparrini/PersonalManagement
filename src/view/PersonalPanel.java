@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import controller.MainController;
 import model.users.User;
 
@@ -34,6 +37,7 @@ public class PersonalPanel extends javax.swing.JPanel {
         jTextFieldSearch.setText("Búsqueda...");
 
         jButtonSearch.setText("Buscar");
+        jButtonSearch.addActionListener(new botonListener(this.jTextFieldSearch.getText()));
 
         jListWorkers.setModel(controlador.getWorkersModel());
         jScrollPane1.setViewportView(jListWorkers);
@@ -77,5 +81,24 @@ public class PersonalPanel extends javax.swing.JPanel {
     private javax.swing.JList<User> jListWorkers;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextFieldSearch;
-    // End of variables declaration                   
+    // End of variables declaration      
+    
+    private class botonListener implements ActionListener{
+
+    	private String busqueda;
+    	
+    	public botonListener(String busqueda){
+    		this.busqueda = busqueda;
+    	}
+	
+		public void actionPerformed(ActionEvent e) {
+			
+			//Aqui llamar al controlador y pasarle el usuario que
+			//viene como parametro en el constructor
+			//PersonalPanel.this.controlador.BUSCARUSUARIODELABASEDEDATOS
+			//Y que saque en jListWorkers el resultado
+		
+		}
+	
+    }
 }
