@@ -55,6 +55,9 @@ public class DBFacade{
 	public List<User> getUsers(){
 		return um.selectAll();
 	}
+	public List<User> getUsers(String filter) {
+		return um.selectAllFiltered(filter);
+	}
 
 	public List<Faculty> getFacultys() {
 		return fm.selectAll();
@@ -86,5 +89,5 @@ public class DBFacade{
 	public boolean insert(Faculty aux) {
 		return fm.insert(aux);
 	}
-
 }
+

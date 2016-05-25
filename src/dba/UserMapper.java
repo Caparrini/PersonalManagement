@@ -1,11 +1,17 @@
 package dba;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
+import model.Faculty;
 import model.users.User;
 
 public class UserMapper extends AbstractMapper<User>{
@@ -81,6 +87,33 @@ public class UserMapper extends AbstractMapper<User>{
 		return new Object[]{
 				ob.getDNI()
 		};
+	}
+
+	public List<User> selectAllFiltered(String filter) {
+        List<User> res = new LinkedList<User>();
+        String f = "%" + filter + "%";
+        String sql = "SELECT * FROM " + this.getTableName() + " WHERE "+
+        this.getColumnNames()[0] + " LIKE ? OR " +
+        this.getColumnNames()[1] + " LIKE ? OR " +
+        this.getColumnNames()[3] + " LIKE ? OR " +
+        this.getColumnNames()[5] + " LIKE ?";
+
+
+        try (Connection con = ds.getConnection();
+            PreparedStatement pst = con.prepareStatement(sql)) {
+            for (int i=0;i<4;i++){
+            	pst.setString(i+1, f);
+            }
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                res.add(this.buildObjectFromResultSet(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+		return res;
 	}
 
 
