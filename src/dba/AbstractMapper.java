@@ -35,7 +35,7 @@ public abstract class AbstractMapper<T> {
     protected abstract Object[] getValues(T ob);
 	protected abstract Object[] getId(T ob);
     /**
-     * Construye un objeto mapeado a partir del ResultSet pasado como parámetro.
+     * Construye un objeto mapeado a partir del ResultSet pasado como parametro.
      * Esta función es la que establece la correspondencia desde el mundo
      * relacional al mundo orientado a objetos.
      */
@@ -92,7 +92,7 @@ public abstract class AbstractMapper<T> {
      }
 
     /**
-     * Inserción general
+     * Insercion general
      * @param values
      * @return
      */

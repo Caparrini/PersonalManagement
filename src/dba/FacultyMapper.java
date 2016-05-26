@@ -109,9 +109,6 @@ public class FacultyMapper extends AbstractMapper<Faculty>{
         String facName = getKeyColumnNames()[0];
         String depFK = dm.getColumnNames()[2];
 
-        // SELECT * FROM questions
-        // LEFT JOIN answers ON questions.id = answers.questionId
-        // WHERE answers.content LIKE ?;
         String sql = "SELECT * FROM " + facTab +
                 " LEFT JOIN " + depTab + " ON " + facTab + "." + facName +
                 " = " + depTab + "." + depFK +

@@ -1,10 +1,7 @@
 package view;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.AbstractAction;
-import javax.swing.SwingUtilities;
-
 import controller.MainController;
 import model.Department;
 import model.users.User;
@@ -23,7 +20,6 @@ public class DepartamentosPanel extends javax.swing.JPanel {
     	controlador = ctrl;
         initComponents();
     }
-    @SuppressWarnings({ "unchecked" })
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -67,11 +63,7 @@ public class DepartamentosPanel extends javax.swing.JPanel {
             }
         });
 
-        jListWorkers.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        jListWorkers.setModel(controlador.getWorkersModel());
         jScrollPane2.setViewportView(jListWorkers);
 
         jButtonDeleteWorker.setText("Eliminar Trabajador Seleccionado");

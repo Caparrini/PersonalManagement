@@ -43,8 +43,7 @@ public class Department{
 
 	@Override
 	public String toString() {
-		return "Department [faculty=" + faculty + ", nameDepartment="
-				+ nameDepartment + ", idDepartment=" + idDepartment + "]";
+		return "Departmento: " + nameDepartment;
 	}
 
 }
