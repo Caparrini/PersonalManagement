@@ -28,8 +28,6 @@ public class PersonalPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListWorkers = new javax.swing.JList<User>();
 
-        jTextFieldSearch.setText("Búsqueda...");
-
         jButtonSearch.setText("Buscar");
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -37,7 +35,7 @@ public class PersonalPanel extends javax.swing.JPanel {
             }
         });
 
-        jTextFieldSearch.setText("Búsqueda...");
+        jTextFieldSearch.setText("B\u00fasqueda...");
         jTextFieldSearch.addActionListener(
         		new AbstractAction()
         		{

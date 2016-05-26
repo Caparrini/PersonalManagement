@@ -44,7 +44,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
             }
         });
 
-        jTextFieldSearch.setText("Búsqueda...");
+        jTextFieldSearch.setText("B\u00fasqueda...");
         jTextFieldSearch.addActionListener(
         		new AbstractAction()
         		{
@@ -71,7 +71,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jListFaculty);
 
-        jTextFieldFaculty.setText("Facultad para añadir...");
+        jTextFieldFaculty.setText("Facultad para a\u00f1adir...");
         jTextFieldFaculty.addActionListener(
         		new AbstractAction()
         		{
@@ -83,7 +83,7 @@ public class FacultadesPanel extends javax.swing.JPanel {
         		}
             );
 
-        jButtonAddFaculty.setText("Añadir facultad");
+        jButtonAddFaculty.setText("A\u00f1adir facultad");
         jButtonAddFaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddFacultyActionPerformed(evt);
@@ -100,14 +100,14 @@ public class FacultadesPanel extends javax.swing.JPanel {
         jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane2.setViewportView(jListDepartments);
 
-        jButtonAddDepartment.setText("Añadir Departamento");
+        jButtonAddDepartment.setText("A\u00f1adir Departamento");
         jButtonAddDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddDepartmentActionPerformed(evt);
             }
         });
 
-        jTextFieldDepartmentName.setText("Departamento para añadir...");
+        jTextFieldDepartmentName.setText("Departamento para a\u00f1adir...");
         jTextFieldDepartmentName.addActionListener(
         		new AbstractAction()
         		{

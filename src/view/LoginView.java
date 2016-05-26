@@ -39,7 +39,7 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabelDNI.setText("DNI: ");
 
-        jLabelPass.setText("Contraseña:");
+        jLabelPass.setText("Contrase\u00f1a:");
 
         jTextFieldDNI.setText("DNI de usuario");
 
@@ -125,7 +125,7 @@ public class LoginView extends javax.swing.JFrame {
 
 		if(!controlador.validaDNI(currentDNI)){
         	JOptionPane.showMessageDialog(this,
-        	"DNI introducido es inválido.",
+        	"DNI introducido es inv\u00e1lido.",
         	"DNI inválido",
         	JOptionPane.WARNING_MESSAGE);
         }
@@ -138,8 +138,8 @@ public class LoginView extends javax.swing.JFrame {
         }
         else if(!controlador.comparePassword(currentDNI,jPasswordField.getPassword())){
         	JOptionPane.showMessageDialog(this,
-        	"Contraseña incorrecta.",
-        	"La contraseña introducida no es correcta",
+        	"Contrase\u00f1a incorrecta.",
+        	"La contrase\u00f1a introducida no es correcta",
         	JOptionPane.WARNING_MESSAGE);
         }
 

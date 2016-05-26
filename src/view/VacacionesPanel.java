@@ -35,14 +35,14 @@ public class VacacionesPanel extends javax.swing.JPanel {
         label2.setText("label2");
 
         jLabelPhrase.setFont(new java.awt.Font("Lucida Grande", 1, 48)); // NOI18N
-        jLabelPhrase.setText("Días de vacaciones disponibles: ");
+        jLabelPhrase.setText("D\u00edas de vacaciones disponibles: ");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 48)); // NOI18N
         jLabel2.setText("N");
 
-        label1H.setText("Primer día vacaciones: ");
+        label1H.setText("Primer d\u00eda vacaciones: ");
 
-        label2H.setText("Último día vacaciones: ");
+        label2H.setText("\u00daltimo d\u00eda vacaciones: ");
 
         buttonHolidays.setLabel("Confirmar Vacaciones");
 

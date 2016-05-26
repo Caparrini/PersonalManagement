@@ -40,7 +40,7 @@ public class DepartamentosPanel extends javax.swing.JPanel {
         jListDepartments.setModel(controlador.getDepartmentsModel());
         jScrollPane1.setViewportView(jListDepartments);
 
-        jTextFieldDepartmentName.setText("Departamento para añadir...");
+        jTextFieldDepartmentName.setText("Departamento para a\u00f1adir...");
         jTextFieldDepartmentName.addActionListener(
         		new AbstractAction()
         		{
@@ -52,7 +52,7 @@ public class DepartamentosPanel extends javax.swing.JPanel {
         		}
             );
 
-        jButtonAddDepartment.setText("Añadir Departamento");
+        jButtonAddDepartment.setText("A\u00f1adir Departamento");
         jButtonAddDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddDepartmentActionPerformed(evt);
@@ -82,7 +82,7 @@ public class DepartamentosPanel extends javax.swing.JPanel {
 
         jLabelFacultad.setText("Facultad");
 
-        jButtonAddWorker.setText("Añadir Trabajador");
+        jButtonAddWorker.setText("A\u00f1adir Trabajador");
         jButtonAddWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddWorkerActionPerformed(evt);
@@ -157,8 +157,9 @@ public class DepartamentosPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                                   
 
-    private void jButtonAddWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
+    private void jButtonAddWorkerActionPerformed(java.awt.event.ActionEvent evt) {
+    	// TODO debe mostrar la ventana recientemente creada para añadir asi un usuario nuevo
+        LoginForm loginForm = new LoginForm();
     }                                                
 
     private void jButtonAddDepartmentActionPerformed(java.awt.event.ActionEvent evt) {                                                     

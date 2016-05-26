@@ -159,7 +159,7 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosEmpleado.add(p_id);
 
-        jLabel8.setText("CATEGOR�A PROFESIONAL: ");
+        jLabel8.setText("CATEGOR\u00cdA PROFESIONAL: ");
 
         //t_categoria.setText(contractData.getJobLevel());
 
@@ -276,7 +276,7 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosContrato.add(p_convenio);
 
-        l_duracion.setText("DURACI�N: ");
+        l_duracion.setText("DURACI\u00d3N: ");
 
         //t_duracion.setText(Integer.toString(contractData.getDuration()));
         
@@ -350,7 +350,7 @@ public class ContractView extends javax.swing.JPanel {
 
         p_datosContrato.add(p_tipo);
 
-        l_remuneracion.setText("REMUNERACIÓN: ");
+        l_remuneracion.setText("REMUNERACI\u00d3N: ");
 
         //t_remuneracion.setText(Double.toString(contractData.getIncomeMoney()));
 
@@ -471,8 +471,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setIdContract(id);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"ID introducido es inválido.",
-                	"ID inválido",
+                	"ID introducido es inv\u00e1lido.",
+                	"ID inv\u00e1lido",
                 	JOptionPane.WARNING_MESSAGE);
         }
         
@@ -501,8 +501,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setDuration(duracion);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"Duración introducida es inválida.",
-                	"Duración inválida",
+                	"Duraci\u00f3n introducida es inv\u00e1lida.",
+                	"Duraci\u00f3n inv\u00e1lida",
                 	JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -515,8 +515,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setIncomeMoney(income);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"Remuneración introducida es inválida.",
-                	"Remuneración inválida",
+                	"Remuneraci\u00f3n introducida es inv\u00f3lida.",
+                	"Remuneraci\u00f3n inv\u00f3lida",
                 	JOptionPane.WARNING_MESSAGE);
         }
 	}
@@ -534,8 +534,8 @@ public class ContractView extends javax.swing.JPanel {
         	this.contractData.setIdContract(vacaciones);
         } catch (NumberFormatException e){
         	JOptionPane.showMessageDialog(this,
-                	"Vacaciones introducidas son inválida.",
-                	"Vacaciones inválidas",
+                	"Vacaciones introducidas son inv\u00f3lida.",
+                	"Vacaciones inv\u00f3lidas",
                 	JOptionPane.WARNING_MESSAGE);
         }
     }
