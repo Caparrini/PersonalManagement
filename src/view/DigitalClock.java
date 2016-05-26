@@ -13,7 +13,7 @@ import javax.swing.Timer;
 import javax.swing.SwingConstants;
 import java.util.*;
 import java.text.*;
-
+@SuppressWarnings("serial")
 public class DigitalClock extends javax.swing.JPanel{
 
 	public DigitalClock(){
@@ -36,6 +36,7 @@ public class DigitalClock extends javax.swing.JPanel{
 	}
 }
 
+@SuppressWarnings("serial")
 class ClockLabel extends JLabel implements ActionListener {
 
 	String type;

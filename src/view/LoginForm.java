@@ -3,6 +3,7 @@ package view;
  *
  * @author ivanc
  */
+@SuppressWarnings("serial")
 public class LoginForm extends javax.swing.JFrame {
 
     /**

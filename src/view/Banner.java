@@ -8,13 +8,14 @@ import javax.swing.ImageIcon;
  * Class for resize the banner in a panel
  * @author Capa
  */
+@SuppressWarnings("serial")
 public class Banner extends javax.swing.JPanel {
     private static final ImageIcon defaultIcon =
             new ImageIcon(Banner.class.getResource("LargeBanner.jpg"));
     private static final int SIZEH = 1024;
     private static final int SIZEW = 100;
-
-    private ImageIcon icon;
+    @SuppressWarnings("unused")
+	private ImageIcon icon;
     private Image rescaledIcon;
 
     public Banner(){
