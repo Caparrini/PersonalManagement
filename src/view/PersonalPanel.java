@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
 
@@ -47,6 +49,17 @@ public class PersonalPanel extends javax.swing.JPanel {
         		}
             );
         jListWorkers.setModel(controlador.getWorkersModel());
+        jListWorkers.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int index = jListWorkers.locationToIndex(e.getPoint());
+                    controlador.changeUserFocus(index);
+                    LoginForm aux = new LoginForm(controlador,null,true);
+                    aux.setVisible(true);
+                }
+            }
+        });
         jScrollPane1.setViewportView(jListWorkers);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

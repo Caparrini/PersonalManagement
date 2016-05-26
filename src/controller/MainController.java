@@ -151,4 +151,10 @@ public class MainController {
 	public void changeFacultyFocus(int index) {
 		model.setFacultyFocus(index);
 	}
+	public void changeUserFocus(int index) {
+		model.setUserP(this.getWorkersModel().getElementAt(index));
+	}
+	public User getUserP() {
+		return model.getUserP();
+	}
 }

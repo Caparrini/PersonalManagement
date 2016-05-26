@@ -80,7 +80,8 @@ public class UserBarPanel extends javax.swing.JPanel {
         );
     }
     private void jButtonPerfilActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
+        LoginForm aux = new LoginForm(controlador,null,true);
+        aux.setVisible(true);
     }
     // Variables declaration - do not modify                     
     private MainController controlador;

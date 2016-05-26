@@ -23,8 +23,17 @@ public class PMMainFrame extends javax.swing.JFrame {
     public PMMainFrame(MainController controlador) {
 		this.controlador = controlador;
 		initComponents();
+        disableComponents();
 	}
-    private void initComponents() {
+    private void disableComponents() {
+    	if(!this.controlador.getAdminSession()){
+    		jTabbedPane.setEnabledAt(2, false);
+    		jTabbedPane.setEnabledAt(3, false);
+    		jTabbedPane.setEnabledAt(4, false);
+    	}
+	}
+
+	private void initComponents() {
 
         banner = new Banner();
         userBarPanel = new UserBarPanel(controlador);

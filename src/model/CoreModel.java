@@ -14,6 +14,7 @@ public class CoreModel {
 	private DefaultListModel<Faculty> facultys;
 	private DefaultListModel<Department> departments;
 	private int facultyFocus;
+	private User userP;
 	private static CoreModel cm;
 	
 	public static CoreModel getCoreModel(){
@@ -28,6 +29,7 @@ public class CoreModel {
 		facultys = new DefaultListModel<Faculty>();
 		departments = new DefaultListModel<Department>();
 		facultyFocus = 0;
+		userP = new User(null, null, null, null, null, null, null, null, null, null);
 	}
 
 	public DefaultListModel<User> getUsers() {
@@ -44,6 +46,7 @@ public class CoreModel {
 
 	public void setUserSession(User newSession){
 		this.userSession = newSession;
+		this.userP = newSession;
 	}
 
 	public boolean valDNI(String text) {
@@ -123,6 +126,13 @@ public class CoreModel {
 	}
 	public void setFacultyFocus(int nf){
 		facultyFocus = nf;
+	}
+
+	public void setUserP(User u) {
+		userP = u;
+	}
+	public User getUserP() {
+		return userP;
 	}
 
 }

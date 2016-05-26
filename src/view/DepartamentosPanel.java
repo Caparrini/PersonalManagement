@@ -3,6 +3,7 @@ package view;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.SwingUtilities;
 
 import controller.MainController;
 import model.Department;
@@ -159,7 +160,8 @@ public class DepartamentosPanel extends javax.swing.JPanel {
 
     private void jButtonAddWorkerActionPerformed(java.awt.event.ActionEvent evt) {
     	// TODO debe mostrar la ventana recientemente creada para añadir asi un usuario nuevo
-        LoginForm loginForm = new LoginForm();
+        LoginForm loginForm = new LoginForm(controlador, null, true);
+        loginForm.setVisible(true);
     }                                                
 
     private void jButtonAddDepartmentActionPerformed(java.awt.event.ActionEvent evt) {                                                     
